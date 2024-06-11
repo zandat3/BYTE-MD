@@ -12,6 +12,7 @@ let utd = false;
 
 smd({
   pattern: "areact",
+        react:"💖"
     alias:["autoreaction","autoreact"],
     desc: "enable/disable auto reaction",
     category: "chats",

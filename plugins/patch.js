@@ -263,27 +263,27 @@ astro_patch.smd(
         Config.menu.trim().startsWith("1") ||
         Config.menu.toLowerCase().includes("menu1")
       ) {
-        menuThemeHeader = "╭━━━〔 *" + Config.botname + "* 〕━━━┈⊷";
-        menuThemeCommandPrefix = "┃☆│";
-        menuThemeFooter = "┃☆╰──────────────\n╰━━━━━━━━━━━━━━━┈⊷";
+        menuThemeHeader = "╭━━━ ♚ *" + Config.botname + "* ♚ ━━━┈⊷";
+        menuThemeCommandPrefix = "┃⥏│";
+        menuThemeFooter = "┃⥏╰──────────────\n╰━━━━━━━━━━━━━━━┈⊷";
         menuThemeCategoryHeader = "╭─────────────┈⊷\n│「";
         menuThemeCategoryFooter = "」\n╰┬────────────┈⊷";
-        menuThemeCommandPrefix = "││◦☆";
+        menuThemeCommandPrefix = "││◦⥏";
         menuThemeCommandFooter = "│╰────────────┈⊷\n╰─────────────┈⊷";
       } else if (
         menuThemeType === 2 ||
         Config.menu.trim().startsWith("2") ||
         Config.menu.toLowerCase().includes("menu2")
       ) {
-        menuThemeHeader = "╭═══ *" + Config.botname + "* ═══⊷\n┃☆╭──────────────";
-        menuThemeCommandPrefix = "┃☆│";
-        menuThemeFooter = "┃☆╰───────────────\n╰═════════════════⊷";
+        menuThemeHeader = " ----♚*" + Config.botname + "* ♚---\n┃⥏╭──────────────";
+        menuThemeCommandPrefix = "┃⥏│";
+        menuThemeFooter = "┃⥏╰───────────────\n╰═════════════════⊷";
         menuThemeCategoryHeader = "╭─❏";
         menuThemeCategoryFooter = "❏";
-        menuThemeCommandPrefix = "┃☆│";
-        menuThemeCommandFooter = "┃☆╰───────────────\n╰═════════════════⊷";
+        menuThemeCommandPrefix = "┃⥏│";
+        menuThemeCommandFooter = "┃⥏╰───────────────\n╰═════════════════⊷";
       } else {
-        menuThemeHeader = "╭〘  " + Config.botname + "  〙";
+        menuThemeHeader = "☇ ⚡ " + Config.botname + "⚡";
         menuThemeCommandPrefix = "│ │";
         menuThemeFooter = "╰═══════════════⊷";
         menuThemeCategoryHeader = "╭─❍";
@@ -365,7 +365,7 @@ ${readmore}`;
 );
 smd(
   {
-    pattern: "menus",
+    pattern: "menulist",
     type: "MENU list",
     info: "user",
     dontAddCommandList: true,
@@ -373,23 +373,23 @@ smd(
   async (_0x22514a) => {
     try {
       let _0x20ed34 = (
-        "\n*➮ᴜᴘ ᴛɪᴍᴇ :* " +
+        "\n*♩ᴜᴘ ᴛɪᴍᴇ :* " +
         runtime(process.uptime()) +
-        "\n*➮ᴛᴏᴅᴀʏ ɪs :* " +
+        "\n*♩ᴛᴏᴅᴀʏ ɪs :* " +
         _0x22514a.date +
-        "\n*➮ɴᴏᴡ ᴛɪᴍᴇ :* " +
+        "\n*♩ɴᴏᴡ ᴛɪᴍᴇ :* " +
         _0x22514a.time +
-        "\n\n➮Fᴏᴜɴᴅᴇʀ- Hamza Team\n➮Oᴡɴᴇʀ - " +
+        "\n\n♩Fᴏᴜɴᴅᴇʀ- Hamza\n♩Oᴡɴᴇʀ - " +
         Config.ownername +
-        "\n➮Nᴜᴍ - " +
+        "\n♩Nᴜᴍ - " +
         owner.split(",")[0] +
-        "\n➮Mᴇᴍᴏ - " +
+        "\n♩Mᴇᴍᴏ - " +
         formatp(os.totalmem() - os.freemem()) +
         "/" +
         formatp(os.totalmem()) +
         "\n\n *👾 BYTE-MD* \n\n" +
         readmore +
-        "\n╭──❰ *ALL MENU* ❱\n│🏮 Lɪꜱᴛ\n│🏮 Cᴀᴛᴇɢᴏʀʏ\n│🏮 Hᴇʟᴘ\n│🏮 Aʟɪᴠᴇ\n│🏮 Uᴘᴛɪᴍᴇ\n│🏮 Wᴇᴀᴛʜᴇʀ\n│🏮 Lɪɴᴋ\n│🏮 Cᴘᴜ\n│🏮 Rᴇᴘᴏꜱɪᴛᴏʀʏ\n╰─────────────⦁"
+        "\n╭──❰ *ALL MENU* ❱\n│🔥 Lɪꜱᴛ\n│🔥 Cᴀᴛᴇɢᴏʀʏ\n│🔥 Hᴇʟᴘ\n│🔥 Aʟɪᴠᴇ\n│🔥 Uᴘᴛɪᴍᴇ\n│🔥 Wᴇᴀᴛʜᴇʀ\n│🔥 Lɪɴᴋ\n│🔥 Cᴘᴜ\n│🔥 Rᴇᴘᴏꜱɪᴛᴏʀʏ\n╰─────────────⦁"
       ).trim();
       return await _0x22514a.bot.sendUi(_0x22514a.from, {
         caption: _0x20ed34,
@@ -481,7 +481,7 @@ astro_patch.cmd(
 astro_patch.cmd(
   {
     pattern: "delcmd",
-    desc: "To check ping",
+    desc: "To Delete CMD",
     category: "user",
     fromMe: true,
     filename: __filename,
@@ -539,11 +539,11 @@ astro_patch.smd(
   },
   async (context) => {
     const startTime = new Date().getTime();
-    const { key: messageKey } = await context.reply("*hmm...*");
+    const { key: messageKey } = await context.reply("*Just a Second!!...*");
     const endTime = new Date().getTime();
     const pingTime = endTime - startTime;
     await context.send(
-      `*🚩....ʟʀᴛᴇɴᴄʏ....🙆🏻‍♂️.: ${pingTime} ᴍs*`,
+      `*🐤...latency of BYTE is....🐣: ${pingTime} ᴍs*`,
       { edit: messageKey },
       "",
       context
@@ -564,7 +564,7 @@ smd(
       const designs = [
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/d9fb019f63ef3b1d47c6e.jpg",
+            "https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/logo.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -587,7 +587,7 @@ smd(
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/d9fb019f63ef3b1d47c6e.jpg",
+            "https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/logo.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -609,7 +609,7 @@ smd(
         },
         async () => {
           const imageBuffer = await axios.get(
-            "https://telegra.ph/file/d9fb019f63ef3b1d47c6e.jpg",
+            "https://raw.githubusercontent.com/HyHamza/HyHamza/main/Images/logo.jpg",
             {
               responseType: "arraybuffer",
             }
@@ -717,7 +717,7 @@ astro_patch.cmd({
 astro_patch.smd(
   {
     pattern: "owner",
-    desc: "To check ping",
+    desc: "To check the OWNER",
     category: "user",
     filename: __filename,
   },

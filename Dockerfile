@@ -1,6 +1,6 @@
 FROM quay.io/sampandey001/secktor
 
-RUN git clone https://github.com/HyhAMZA/BYTE-MD.git /root/TalkDrove
+RUN git clone https://github.com/HyHamza/BYTE-MD.git /root/TalkDrove
 
 # Clear npm cache and remove node_modules directories
 RUN npm cache clean --force

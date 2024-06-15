@@ -62,7 +62,7 @@ smd({
       await generateSticker(_0x5f0a63, _0x313fc1, _0x37d0ee);
       return _0x313fc1 = false;
     } else {
-      return _0x5f0a63.reply("*_Uhh Dear, Reply to image/video!!_*");
+      return _0x5f0a63.reply("*_Hey, Reply to image/video!!_*");
     }
   } catch (_0xb1d121) {
     return await _0x5f0a63.error(_0xb1d121 + "\n\ncmdName: sticker\n");
@@ -131,7 +131,7 @@ smd({
       await generateSticker(_0x50fc92, _0x1a1951, _0xb6aa00);
       return _0x1a1951 = false;
     } else {
-      return _0x50fc92.reply("*_Uhh Dear, Reply to image!!_*");
+      return _0x50fc92.reply("*_Hey, Reply to image!!_*");
     }
   } catch (_0x1c7f0b) {
     return await _0x50fc92.error(_0x1c7f0b + "\n\ncmdName: crop\n", "*_Request Failed, Reply to an image only!_*");
@@ -158,7 +158,7 @@ smd({
       await generateSticker(_0x52caf7, _0x5adc33, _0x546011);
       return _0x5adc33 = false;
     } else {
-      return _0x52caf7.reply("*_Uhh Dear, Reply to image!!_*");
+      return _0x52caf7.reply("*_Hey, Reply to image!!_*");
     }
   } catch (_0x165b2a) {
     return await _0x52caf7.error(_0x165b2a + "\n\ncmdName: circle\n", "*_Request Failed, Make sure You replied an image_*");
@@ -185,7 +185,7 @@ smd({
       await generateSticker(_0x37c100, _0x3140d1, _0x7f0ab0);
       return _0x3140d1 = false;
     } else {
-      return _0x37c100.reply("*_Uhh Dear, Reply to an image!!_*");
+      return _0x37c100.reply("*_Hey, Reply to an image!!_*");
     }
   } catch (_0x52baa5) {
     return await _0x37c100.error(_0x52baa5 + "\n\ncmdName: round\n", "*_Request Failed, Make sure You replied an image!_*");
@@ -363,7 +363,7 @@ smd({
     let _0x365550 = "┏━━━━━━━━━━━━━━━━━━━━━━━━\n┃\t*BYTE-MD-𝐅𝐀𝐍𝐂𝐘-𝐓𝐄𝐗𝐓💬* \n┗━━━━━━━━━━━━━━━━━━━━━━━━\n\n " + (_0x3b568a ? "```🔢Reply the number you wants to select``` \n\n" : "```\t\t" + prefix + "fancy byte(For all text)\n\t\t" + prefix + "fancy 25 BYTE(For specific text)```\n\n");
     let _0x50c7d9 = parseInt(_0x3b568a);
     if (isNaN(_0x50c7d9)) {
-      let _0x4ca942 = _0x3b568a ? _0x3b568a : "Wasi";
+      let _0x4ca942 = _0x3b568a ? _0x3b568a : "Hamza";
       listall(_0x4ca942).forEach((_0x51f58f, _0x2be109) => {
         _0x365550 += "\n" + (_0x2be109 += 1) + " " + _0x51f58f + "\n";
       });
@@ -509,7 +509,7 @@ smd({
   try {
     let _0xd092ed = pmtypes.includes(_0x31d7b.mtype) ? _0x31d7b : _0x31d7b.reply_message;
     if (!_0xd092ed || !pmtypes.includes(_0xd092ed?.mtype)) {
-      return _0x31d7b.reply("*_Uhh Dear, Reply to Any Sticker.!!_*");
+      return _0x31d7b.reply("*_Hey, Reply to Any Sticker.!!_*");
     }
     let _0x361039 = await _0x31d7b.bot.downloadAndSaveMediaMessage(_0xd092ed);
     await _0x31d7b.bot.sendMessage(_0x31d7b.jid, {
@@ -537,7 +537,7 @@ smd({
   try {
     let _0x2976f2 = audtypes.includes(_0x116242.mtype) ? _0x116242 : _0x116242.reply_message;
     if (!_0x2976f2 || !audtypes.includes(_0x2976f2?.mtype)) {
-      return _0x116242.reply("*_Uhh Dear, Reply to Any Video.!!_*");
+      return _0x116242.reply("*_Hey, Reply to Any Video.!!_*");
     }
     let _0x2b56d1 = await _0x116242.bot.downloadAndSaveMediaMessage(_0x2976f2);
     const {
@@ -590,7 +590,7 @@ smd({
 }, async m => {
   let asta_mp4 = m.mtype === "videoMessage" ? m : m.reply_message;
   if (!asta_mp4) {
-    return m.reply("*_Uhh Dear, Reply To Animated Sticker or Gif!!_*");
+    return m.reply("*_Hey, Reply To Animated Sticker or Gif!!_*");
   }
   const {
     webp2mp4File: _0x3e4a6e
@@ -693,7 +693,7 @@ smd({
         return _0x3dac0f = false;
       });
     } else {
-      return _0x54e3dc.reply("*_Uhh Dear, provide text, ex .ttp 4 hii im byte!!_*");
+      return _0x54e3dc.reply("*_Hey, provide text, ex .ttp 4 hii im byte!!_*");
     }
   } catch (_0x72e5d) {
     return await _0x54e3dc.error(_0x72e5d + "\n\ncmdName: ttp\n");

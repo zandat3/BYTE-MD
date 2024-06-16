@@ -1,4 +1,4 @@
-const bot = require(__dirname + '/lib/amd')
+const bot = require(__dirname + '/lib/byte')
 const { VERSION } = require(__dirname + '/config')
 
 const start = async () => {

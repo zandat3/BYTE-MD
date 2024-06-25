@@ -66,7 +66,7 @@ smd({
         if (ms[_0x52ea50].key.id === _0x5981c4.msg.key.id) {
           let _0xca8aed = await _0x5981c4.bot.fakeMessage("text", {
             'id': _0x5981c4.msg.key.id
-          }, "*[ANTIDELETE DETECTED]*");
+          }, "*HEY, ANTIDELETE DETECTED*");
           let _0x35fa6d = await _0x5981c4.bot.forwardOrBroadCast(/pm/gi.test(DELCHAT) ? _0x5981c4.user : _0x5981c4.from, ms[_0x52ea50].message, {
             'quoted': ms[_0x52ea50].message && ms[_0x52ea50].message.conversation ? undefined : _0xca8aed
           });

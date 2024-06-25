@@ -171,7 +171,7 @@ astro_patch.byte({
         commandDetails.push("*🔉Command:* " + foundCommand.pattern);
         if (foundCommand.category) {
           commandDetails.push("*💁Category:* " + foundCommand.category);
-        }
+        }f
         if (foundCommand.alias && foundCommand.alias[0]) {
           commandDetails.push("*💁Alias:* " + foundCommand.alias.join(", "));
         }
@@ -389,8 +389,8 @@ astro_patch.byte({
   }, "", context);
 });
 astro_patch.byte({
-    pattern: "ping",
-    desc: "To check ping",
+    pattern: "check",
+    desc: "To check the bot is working or not",
     category: "user",
     filename: __filename
   }, async context => {

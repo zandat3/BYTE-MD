@@ -13,7 +13,7 @@ let {
   formatp,
   prefix,
   tiny,
-  byte,
+  smd,
   bot
 } = require("../lib");
 const util = require("util");
@@ -65,7 +65,7 @@ function parseDmiDecodeOutput(output) {
   for (let i = 1; i < memoryDevices.length; i++) {}
   return ramInfo;
 }
-byte({
+smd({
   cmdname: "update",
   type: "owner",
   info: "Installs external modules or plugins from a provided URL or a predefined list.",
@@ -105,7 +105,7 @@ byte({
           data: pluginCode
         } = await axios.get(url);
         const pluginName = url.split("/").pop().split(".")[0];
-        const pluginFileName = pluginName + (pluginExtensions[pluginName] && /.js|.byte/gi.test(pluginExtensions[pluginName]) ? pluginExtensions[pluginName] : ".js");
+        const pluginFileName = pluginName + (pluginExtensions[pluginName] && /.js|.smd/gi.test(pluginExtensions[pluginName]) ? pluginExtensions[pluginName] : ".js");
         const pluginDir = plugin_dir + (pluginFileName.includes("/") ? pluginFileName.split("/")[0] : "");
         if (!fs.existsSync(pluginDir)) {
           fs.mkdirSync(pluginDir, {
@@ -126,7 +126,7 @@ byte({
             data: pluginCode
           } = await axios.get(pluginUrl);
           if (pluginCode) {
-            const pluginFileName = pluginName + (pluginExtensions[pluginName] && /.js|.byte/gi.test(pluginExtensions[pluginName]) ? pluginExtensions[pluginName] : ".js");
+            const pluginFileName = pluginName + (pluginExtensions[pluginName] && /.js|.smd/gi.test(pluginExtensions[pluginName]) ? pluginExtensions[pluginName] : ".js");
             const pluginDir = plugin_dir + (pluginFileName.includes("/") ? pluginFileName.split("/")[0] : "");
             if (!fs.existsSync(pluginDir)) {
               fs.mkdirSync(pluginDir, {
@@ -152,7 +152,7 @@ byte({
     log("❌ ERROR INSTALATION PLUGINS ", error);
   }
 });
-astro_patch.byte({
+astro_patch.smd({
   cmdname: "menu",
   desc: "Help list",
   react: "✅",
@@ -171,7 +171,7 @@ astro_patch.byte({
         commandDetails.push("*🔉Command:* " + foundCommand.pattern);
         if (foundCommand.category) {
           commandDetails.push("*💁Category:* " + foundCommand.category);
-        }f
+        }
         if (foundCommand.alias && foundCommand.alias[0]) {
           commandDetails.push("*💁Alias:* " + foundCommand.alias.join(", "));
         }
@@ -206,7 +206,7 @@ astro_patch.byte({
       menuThemeCommandPrefix = "││◦⥏";
       menuThemeCommandFooter = "│╰────────────┈⊷\n╰─────────────┈⊷";
     } else if (menuThemeType === 2 || Config.menu.trim().startsWith("2") || Config.menu.toLowerCase().includes("menu2")) {
-      menuThemeHeader = " ----♚*" + Config.botname + "*♚---\n┃⥏╭──────────────";
+      menuThemeHeader = " ----♚*" + Config.botname + "* ♚---\n┃⥏╭──────────────";
       menuThemeCommandPrefix = "┃⥏│";
       menuThemeFooter = "┃⥏╰───────────────\n╰═════════════════⊷";
       menuThemeCategoryHeader = "╭─❏";
@@ -217,8 +217,8 @@ astro_patch.byte({
       menuThemeHeader = "☇ ⚡ " + Config.botname + "⚡";
       menuThemeCommandPrefix = "│ │";
       menuThemeFooter = "╰═══════════════⊷";
-      menuThemeCategoryHeader = "╭─";
-      menuThemeCategoryFooter = "══⊷";
+      menuThemeCategoryHeader = "╭─❍";
+      menuThemeCategoryFooter = "══⊷❍";
       menuThemeCommandPrefix = "│";
       menuThemeCommandFooter = "╰════════════─⊷";
     }
@@ -276,7 +276,7 @@ ${readmore}`;
     await message.error(error + "\nCommand: menu", error);
   }
 });
-byte({
+smd({
   pattern: "menulist",
   type: "MENU list",
   info: "user",
@@ -372,8 +372,9 @@ astro_patch.cmd({
     await _0xcfb3ed.error(_0x2252fb + "\nCommand:delcmd", _0x2252fb);
   }
 });
-astro_patch.byte({
+astro_patch.smd({
   pattern: "ping",
+  react: "🐣",
   desc: "To check ping",
   category: "user",
   filename: __filename
@@ -384,27 +385,27 @@ astro_patch.byte({
   } = await context.reply("*Just a Second!!...*");
   const endTime = new Date().getTime();
   const pingTime = endTime - startTime;
-  await context.send(`*🐤...latency of BYTE is....🐣: ${pingTime} ᴍs*`, {
+  await context.send(`*🐣...latency of BYTE is....🐤: ${pingTime} ᴍs*`, {
     edit: messageKey
   }, "", context);
 });
-astro_patch.byte({
-    pattern: "check",
-    desc: "To check the bot is working or not",
+astro_patch.smd({
+    pattern: "test",
+    desc: "To Test the bot is working or not",
     category: "user",
     filename: __filename
   }, async context => {
     const startTime = new Date().getTime();
     const {
       key: messageKey
-    } = await context.reply("*Heyyyyyyyyy!!...*");
+    } = await context.reply("*Hey! There...*");
     const endTime = new Date().getTime();
     const pingTime = endTime - startTime;
-    await context.send(`*BYTE IS ACTIVE*`, {
+    await context.send(`*BYTE IS ACTIVE....🐤*`, {
       edit: messageKey
     }, "", context);
   });
-byte({
+smd({
   pattern: "LIV",
   desc: "Shows system status with different designs.",
   category: "general",
@@ -456,7 +457,7 @@ byte({
       const pingSeconds = (end - start) / 1000;
       return {
         image: imageBuffer.data,
-        caption: `BYTE-MD\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\nByHamza`
+        caption: `𝘞𝘈𝘚𝘐-𝘔𝘋-𝘝2\n\n*Ping:* ${pingSeconds} seconds\n\n*Line:*\n${line.result}\n\n𝗕𝗬-𝗪𝗔𝗦𝗜-𝗦𝗘𝗥`
       };
     }];
     const randomDesign = designs[Math.floor(Math.random() * designs.length)];
@@ -473,7 +474,7 @@ byte({
     await message.error(error + "\n\nCommand: LIV", error, "*Failed to show status.*");
   }
 });
-byte({
+smd({
   pattern: "runtime",
   desc: "Show the uptime, RAM usage, and CPU name of the process.",
   category: "general",
@@ -529,7 +530,7 @@ astro_patch.cmd({
     await _0x1d5ddc.error(_0x3e730d + "\nCommand:list", _0x3e730d);
   }
 });
-astro_patch.byte({
+astro_patch.smd({
   pattern: "owner",
   desc: "To check the OWNER",
   category: "user",
@@ -719,7 +720,7 @@ astro_patch.cmd({
     await _0x32b2cc.error(_0x2b0925 + "\n\ncommand shell", _0x2b0925);
   }
 });
-byte({
+smd({
   on: "text"
 }, async (_0x460b55, _0x2fcc6c, {
   mek: _0x376ae1,
@@ -816,7 +817,7 @@ byte({
   }
 });
 /**MASTER */
-byte({
+smd({
   on: "text"
 }, async (msg, _text, {
   budy,
@@ -853,4 +854,4 @@ byte({
       }
     }
   }
-});
+}); 

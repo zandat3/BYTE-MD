@@ -1,6 +1,6 @@
 const axios = require('axios');
 const fetch = require("node-fetch");
-smd({
+byte({
   'pattern': "tiktok2",
   'alias': ["tt2", "ttdl2"],
   'desc': "Downloads Tiktok Videos Via Url.",

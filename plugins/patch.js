@@ -390,8 +390,8 @@ astro_patch.smd({
   }, "", context);
 });
 astro_patch.smd({
-    pattern: "test",
-    desc: "To Test the bot is working or not",
+    pattern: "check",
+    desc: "To check the bot is working or not",
     category: "user",
     filename: __filename
   }, async context => {

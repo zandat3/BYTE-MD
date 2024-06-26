@@ -42,11 +42,11 @@ smd({
   }
 });
 
-smd({ on: "main" }, async (msg, text, { icmd, chat, connection }) => {
+smd({ on: "main" }, async (message, text, { icmd, chat, connection }) => {
   try {
-    if (!msg || msg.reaction) return;
+    if (!message || message.reaction) return;
     if (!bots || utd) {
-      bots = await bot_.findOne({ id: `bot_${msg.user}` });
+      bots = await bot_.findOne({ id: `bot_${message.user}` });
       utd = false;
     }
     if (!bots || !bots.autoreaction || bots.autoreaction === "false") return;

@@ -1,3 +1,13 @@
+const {
+    smd,
+    tlang,
+    prefix,
+    Config,
+    sleep,
+    astroJson,
+    smdBuffer
+  } = require("../lib");
+  const axios = require("axios");
 let bgmm = false;
 smd({
   'cmdname': "antiviewonce",

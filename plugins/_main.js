@@ -505,7 +505,7 @@ async function getDateTime() {
 smd({
   pattern: "repo",
   alias: ["git", "sc", "script"],
-  react:"🖲️",
+  react:"🐼",
   desc: "Sends info about repo",
   category: "general",
   filename: __filename
@@ -514,7 +514,7 @@ smd({
     let {
       data: _0x44f98c
     } = await axios.get("https://api.github.com/repos/HyHamza/BYTE-MD");
-    let _0x1c73f9 = ("\nBYTE-MD THIS BOT IS ONLY CREATED FOR TALKDROVE FANS *" + Config.ownername + "*.\n\n  * Stars:* " + (_0x44f98c?.stargazers_count || "Unkown") + " stars\n  * Forks:* " + (_0x44f98c?.forks_count || "Unkown") + " forks\n  * Authors:* Hamza\n  * Created On:* " + (_0x44f98c?.created_at || "undefined") + "\n  * Repo:* _https://github.com/HyHamza/BYTE-MD_\n  * Scan:* _" + scan + "_" + (Config.caption ? "\n\n" + Config.caption : "")).trim();
+    let _0x1c73f9 = ("\nBYTE-MD THIS BOT IS ONLY CREATED FOR TALKDROVE FANS *" + Config.ownername + "*.\n\n  *Stars:* " + (_0x44f98c?.stargazers_count || "Unkown") + " stars\n  *Forks:* " + (_0x44f98c?.forks_count || "Unkown") + " forks\n  *Authors:* Hamza\n  * Created On:* " + (_0x44f98c?.created_at || "undefined") + "\n  *Repo:* _https://github.com/HyHamza/BYTE-MD_\n  *Scan:* _" + scan + "_" + (Config.caption ? "\n\n" + Config.caption : "")).trim();
     return await _0x45da98.sendUi(_0x45da98.jid, {
       caption: _0x1c73f9
     });

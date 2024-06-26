@@ -2,111 +2,101 @@ const {
   updateProfilePicture,
   parsedJid
 } = require("../lib");
-const {
-  sck,
-  smd,
-  send,
-  Config,
-  tlang,
-  sleep,
-  getAdmin,
-  prefix
-} = require("../lib");
-const astro_patch = require("../lib/plugins");
+const sᴜʜᴀɪʟ_ᴍᴅ = require("../lib/plugins");
 const {
   cmd
-} = astro_patch;
+} = sᴜʜᴀɪʟ_ᴍᴅ;
 smd({
-  'cmdname': 'join',
+  'cmdname': "join",
   'info': "joins group by link",
-  'type': "whatsapp",
+  'type': 'whatsapp',
   'fromMe': true,
   'filename': __filename,
   'use': "<group link.>"
-}, async (_0x22fa78, _0x594b7f) => {
+}, async (_0x466dd8, _0x5b1338) => {
   try {
-    if (_0x22fa78.reply_message && _0x22fa78.reply_message.groupInvite) {
-      var _0x1bf53c = await _0x22fa78.bot.groupAcceptInviteV4(_0x22fa78.chat, _0x22fa78.reply_message.msg);
-      if (_0x1bf53c && _0x1bf53c.includes("joined to:")) {
-        return await send(_0x22fa78, "*_Joined_*", {}, '', _0x22fa78);
+    if (_0x466dd8.reply_message && _0x466dd8.reply_message.groupInvite) {
+      var _0x29e5fc = await _0x466dd8.bot.groupAcceptInviteV4(_0x466dd8.chat, _0x466dd8.reply_message.msg);
+      if (_0x29e5fc && _0x29e5fc.includes("joined to:")) {
+        return await send(_0x466dd8, "*_Joined_*", {}, '', _0x466dd8);
       }
     }
-    let _0x12ced9 = _0x594b7f ? _0x594b7f : _0x22fa78.reply_text;
-    const _0x3f745d = _0x12ced9.match(/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g);
-    if (!_0x3f745d) {
-      return await _0x22fa78.reply("*_Uhh Please, provide group link_*");
+    let _0x208739 = _0x5b1338 ? _0x5b1338 : _0x466dd8.reply_text;
+    const _0x47ed60 = _0x208739.match(/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g);
+    if (!_0x47ed60) {
+      return await _0x466dd8.reply("*_Uhh Please, provide group link_*");
     }
-    let _0x1303a2 = _0x3f745d[0x0].split("https://chat.whatsapp.com/")[0x1].trim();
-    await _0x22fa78.bot.groupAcceptInvite(_0x1303a2).then(_0x4113ab => send(_0x22fa78, '*_Joined_*', {}, '', _0x22fa78))["catch"](_0x60dd05 => _0x22fa78.send("*_Can't Join, Group Id not found!!_*"));
-  } catch (_0x3b2bb9) {
-    await _0x22fa78.error(_0x3b2bb9 + "\n\ncommand: join", _0x3b2bb9, "*_Can't Join, Group Id not found, Sorry!!_*");
+    let _0x4263be = _0x47ed60[0x0].split("https://chat.whatsapp.com/")[0x1].trim();
+    await _0x466dd8.bot.groupAcceptInvite(_0x4263be).then(_0x7f3222 => send(_0x466dd8, "*_Joined_*", {}, '', _0x466dd8))["catch"](_0x1d6aea => _0x466dd8.send("*_Can't Join, Group Id not found!!_*"));
+  } catch (_0x5d3484) {
+    await _0x466dd8.error(_0x5d3484 + "\n\ncommand: join", _0x5d3484, "*_Can't Join, Group Id not found, Sorry!!_*");
   }
 });
 smd({
   'cmdname': 'newgc',
   'info': "Create New Group",
-  'type': "whatsapp",
+  'type': 'whatsapp',
   'filename': __filename,
   'use': "<group link.>"
-}, async (_0x350ee0, _0x14e630, {
-  smd: _0x4a6e77,
-  cmdName: _0x36eafa
+}, async (_0x1d2f1f, _0x3c558e, {
+  smd: _0x2e7a79,
+  cmdName: _0x49994a
 }) => {
   try {
-    if (!_0x350ee0.isCreator) {
-      return _0x350ee0.reply(tlang().owner);
+    if (!_0x1d2f1f.isCreator) {
+      return _0x1d2f1f.reply(tlang().owner);
     }
-    if (!_0x14e630) {
-      return await _0x350ee0.reply("*_provide Name to Create new Group!!!_*\n*_Ex: " + (prefix + _0x4a6e77) + " My Name Group @user1,2,3.._*");
+    if (!_0x3c558e) {
+      return await _0x1d2f1f.reply("*_provide Name to Create new Group!!!_*\n*_Ex: " + (prefix + _0x2e7a79) + " My Name Group @user1,2,3.._*");
     }
-    let _0x531d4b = _0x14e630;
-    if (_0x531d4b.toLowerCase() === "info") {
-      return await _0x350ee0.send(("\n  *Its a command to create new Gc*\n  \t```Ex: " + (prefix + cmd) + " My new Group```\n  \n*You also add peoples in newGc*\n  \t```just reply or mention Users```\n  ").trim());
+    let _0x379d99 = _0x3c558e;
+    if (_0x379d99.toLowerCase() === 'info') {
+      return await _0x1d2f1f.send(("\n  *Its a command to create new Gc*\n  \t```Ex: " + (prefix + cmd) + " My new Group```\n  \n*You also add peoples in newGc*\n  \t```just reply or mention Users```\n  ").trim());
     }
-    let _0x3063d3 = [_0x350ee0.sender];
-    if (_0x350ee0.quoted) {
-      _0x3063d3.push(_0x350ee0.quoted.sender);
+    let _0x5a5c26 = [_0x1d2f1f.sender];
+    if (_0x1d2f1f.quoted) {
+      _0x5a5c26.push(_0x1d2f1f.quoted.sender);
     }
-    if (_0x350ee0.mentionedJid && _0x350ee0.mentionedJid[0x0]) {
-      _0x3063d3.push(..._0x350ee0.mentionedJid);
+    if (_0x1d2f1f.mentionedJid && _0x1d2f1f.mentionedJid[0x0]) {
+      _0x5a5c26.push(..._0x1d2f1f.mentionedJid);
       try {
-        mentionJids.forEach(_0x59b395 => {
-          var _0x2e1b34 = _0x59b395.split('@')[0x0].trim();
-          _0x531d4b = _0x531d4b.replace(new RegExp('@' + _0x2e1b34, 'g'), '');
+        mentionJids.forEach(_0x3e3852 => {
+          var _0x30af68 = _0x3e3852.split('@')[0x0].trim();
+          _0x379d99 = _0x379d99.replace(new RegExp('@' + _0x30af68, 'g'), '');
         });
       } catch {}
     }
-    const _0xabbe6 = _0x531d4b.substring(0x0, 0x3c);
-    const _0x3d8de9 = await Gifted.bot.groupCreate(_0xabbe6, [..._0x3063d3]);
-    if (_0x3d8de9) {
-      let _0x2d8028 = await _0x350ee0.bot.sendMessage(_0x3d8de9.id, {
-        'text': "*_Hey Master, Welcome to new Group_*\n" + Config.caption
+    const _0x37b490 = _0x379d99.substring(0x0, 0x3c);
+    const _0x417018 = await Suhail.bot.groupCreate(_0x37b490, [..._0x5a5c26]);
+    if (_0x417018) {
+      let _0x2c6495 = await _0x1d2f1f.bot.sendMessage(_0x417018.id, {
+        'text': "*_Hey Buddy, Welcome to new Group_*\n" + Config.caption
       });
       try {
-        var _0x36f63c = await Suhail.bot.groupInviteCode(_0x3d8de9.id);
+        var _0x3a49e9 = await Suhail.bot.groupInviteCode(_0x417018.id);
       } catch {
-        var _0x36f63c = false;
+        var _0x3a49e9 = false;
       }
-      var _0x578f8d = "https://chat.whatsapp.com/" + _0x36f63c;
-      var _0x4ad85d = {
+      var _0x2fe2c7 = "https://chat.whatsapp.com/" + _0x3a49e9;
+      var _0x539d8f = {
         'externalAdReply': {
-          'title': "GIFTED-MD",
-          'body': '' + _0xabbe6,
+          'title': "𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗",
+          'body': '' + _0x37b490,
           'renderLargerThumbnail': true,
           'thumbnail': log0,
           'mediaType': 0x1,
-          'mediaUrl': _0x578f8d,
-          'sourceUrl': _0x578f8d
+          'mediaUrl': _0x2fe2c7,
+          'sourceUrl': _0x2fe2c7
         }
       };
-      return await send(_0x350ee0, ("*_Hurray, New group created!!!_*\n" + (_0x36f63c ? '*_' + _0x578f8d + '_*' : '')).trim(), {
-        'contextInfo': _0x4ad85d
-      }, '', _0x2d8028);
+      return await send(_0x1d2f1f, ("*_Hurray, New group created!!!_*\n" + (_0x3a49e9 ? '*_' + _0x2fe2c7 + '_*' : '')).trim(), {
+        'contextInfo': _0x539d8f
+      }, '', _0x2c6495);
     } else {
-      await _0x350ee0.send("*_Can't create new group, Sorry!!_*");
+      await _0x1d2f1f.send("*_Can't create new group, Sorry!!_*");
     }
-  } catch (_0x1d5b74) {
-    await _0x350ee0.error(_0x1d5b74 + "\n\ncommand: " + _0x36eafa, _0x1d5b74, "*_Can't create new group, Sorry!!_*");
+  } catch (_0x33d6f3) {
+    await _0x1d2f1f.error(_0x33d6f3 + "\n\ncommand: " + _0x49994a, _0x33d6f3, "*_Can't create new group, Sorry!!_*");
   }
 });
 smd({
@@ -115,41 +105,41 @@ smd({
   'type': "group",
   'filename': __filename,
   'use': "<group link.>"
-}, async (_0xc68b73, _0x3e105f) => {
+}, async (_0x4f7c88, _0x1490e0) => {
   try {
-    let _0x47573a = _0x3e105f ? _0x3e105f : _0xc68b73.reply_text;
-    const _0x31fc47 = _0x47573a.match(/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g) || false;
-    if (!_0x31fc47) {
-      return await _0xc68b73.reply("*_Uhh Please, provide group link_*");
+    let _0x3eb855 = _0x1490e0 ? _0x1490e0 : _0x4f7c88.reply_text;
+    const _0x3e5033 = _0x3eb855.match(/https:\/\/chat\.whatsapp\.com\/[A-Za-z0-9]{22}/g) || false;
+    if (!_0x3e5033) {
+      return await _0x4f7c88.reply("*_Uhh Please, provide group link_*");
     }
-    let _0xeb133e = _0x31fc47[0x0].split('https://chat.whatsapp.com/')[0x1].trim();
-    const _0x5d4ff5 = await _0xc68b73.bot.groupGetInviteInfo(_0xeb133e);
-    if (_0x5d4ff5) {
-      const _0x499dd4 = new Date(_0x5d4ff5.creation * 0x3e8);
-      var _0x5a92a0 = _0x499dd4.getFullYear();
-      var _0x231b92 = _0x499dd4.getMonth() + 0x1;
-      var _0x398b4e = _0x499dd4.getDate();
-      var _0x145971 = _0x5a92a0 + '-' + _0x231b92.toString().padStart(0x2, '0') + '-' + _0x398b4e.toString().padStart(0x2, '0');
-      var _0x426b39 = {
+    let _0x5ced5d = _0x3e5033[0x0].split('https://chat.whatsapp.com/')[0x1].trim();
+    const _0x5f4890 = await _0x4f7c88.bot.groupGetInviteInfo(_0x5ced5d);
+    if (_0x5f4890) {
+      const _0x40ced5 = new Date(_0x5f4890.creation * 0x3e8);
+      var _0x10288a = _0x40ced5.getFullYear();
+      var _0x436585 = _0x40ced5.getMonth() + 0x1;
+      var _0x511884 = _0x40ced5.getDate();
+      var _0x236a49 = _0x10288a + '-' + _0x436585.toString().padStart(0x2, '0') + '-' + _0x511884.toString().padStart(0x2, '0');
+      var _0x56eaaf = {
         'externalAdReply': {
-          'title': "GIFTED-MD",
-          'body': _0x5d4ff5.subject,
+          'title': "𝗦𝗨𝗛𝗔𝗜𝗟-𝗠𝗗",
+          'body': _0x5f4890.subject,
           'renderLargerThumbnail': true,
           'thumbnail': log0,
           'mediaType': 0x1,
-          'mediaUrl': _0x31fc47[0x0],
-          'sourceUrl': _0x31fc47[0x0]
+          'mediaUrl': _0x3e5033[0x0],
+          'sourceUrl': _0x3e5033[0x0]
         }
       };
-      return await send(_0xc68b73, (_0x5d4ff5.subject + "\n  \n  Creator: wa.me/" + _0x5d4ff5.owner.split('@')[0x0] + " \n  GJid; ```" + _0x5d4ff5.id + "  ```\n  *Muted:* " + (_0x5d4ff5.announce ? " yes" : " no") + "\n  *Locked:* " + (_0x5d4ff5.restrict ? " yes" : " no") + "\n  *createdAt:* " + _0x145971 + "\n  *participents:* " + (_0x5d4ff5.size > 0x3 ? _0x5d4ff5.size + 'th' : _0x5d4ff5.size) + "\n  " + (_0x5d4ff5.desc ? "*description:* " + _0x5d4ff5.desc + "\n" : '') + "\n  " + Config.caption + "\n  ").trim(), {
-        'mentions': [_0x5d4ff5.owner],
-        'contextInfo': _0x426b39
-      }, '', _0xc68b73);
+      return await send(_0x4f7c88, (_0x5f4890.subject + "\n  \n  Creator: wa.me/" + _0x5f4890.owner.split('@')[0x0] + " \n  GJid; ```" + _0x5f4890.id + "  ```\n  *Muted:* " + (_0x5f4890.announce ? " yes" : " no") + "\n  *Locked:* " + (_0x5f4890.restrict ? " yes" : " no") + "\n  *createdAt:* " + _0x236a49 + "\n  *participents:* " + (_0x5f4890.size > 0x3 ? _0x5f4890.size + 'th' : _0x5f4890.size) + "\n  " + (_0x5f4890.desc ? "*description:* " + _0x5f4890.desc + "\n" : '') + "\n  " + Config.caption + "\n  ").trim(), {
+        'mentions': [_0x5f4890.owner],
+        'contextInfo': _0x56eaaf
+      }, '', _0x4f7c88);
     } else {
-      await _0xc68b73.send("*_Group Id not found, Sorry!!_*");
+      await _0x4f7c88.send("*_Group Id not found, Sorry!!_*");
     }
-  } catch (_0xbc7dc) {
-    await _0xc68b73.error(_0xbc7dc + "\n\ncommand: ginfo", _0xbc7dc, "*_Group Id not found, Sorry!!_*");
+  } catch (_0x36c345) {
+    await _0x4f7c88.error(_0x36c345 + "\n\ncommand: ginfo", _0x36c345, "*_Group Id not found, Sorry!!_*");
   }
 });
 smd({
@@ -158,98 +148,98 @@ smd({
   'info': "reject all request to join!",
   'type': "group",
   'filename': __filename
-}, async (_0x186f04, _0x3b8220) => {
+}, async (_0xb81e45, _0x3dda5f) => {
   try {
-    if (!_0x186f04.isGroup) {
-      return _0x186f04.reply(tlang().group);
+    if (!_0xb81e45.isGroup) {
+      return _0xb81e45.reply(tlang().group);
     }
-    if (!_0x186f04.isBotAdmin || !_0x186f04.isAdmin) {
-      return await _0x186f04.reply(!_0x186f04.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x186f04.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0xb81e45.isBotAdmin || !_0xb81e45.isAdmin) {
+      return await _0xb81e45.reply(!_0xb81e45.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0xb81e45.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
-    const _0x20ac94 = await _0x186f04.bot.groupRequestParticipantsList(_0x186f04.chat);
-    if (!_0x20ac94 || !_0x20ac94[0x0]) {
-      return await _0x186f04.reply("*_No Request Join Yet_*");
+    const _0x4ea369 = await _0xb81e45.bot.groupRequestParticipantsList(_0xb81e45.chat);
+    if (!_0x4ea369 || !_0x4ea369[0x0]) {
+      return await _0xb81e45.reply("*_No Request Join Yet_*");
     }
-    let _0x4cc1f8 = [];
-    let _0x43a2de = "*List of rejected users*\n\n";
-    for (let _0x2440e1 = 0x0; _0x2440e1 < _0x20ac94.length; _0x2440e1++) {
+    let _0x3b870c = [];
+    let _0x32f437 = "*List of rejected users*\n\n";
+    for (let _0x164385 = 0x0; _0x164385 < _0x4ea369.length; _0x164385++) {
       try {
-        await _0x186f04.bot.groupRequestParticipantsUpdate(_0x186f04.from, [_0x20ac94[_0x2440e1].jid], 'reject');
-        _0x43a2de += '@' + _0x20ac94[_0x2440e1].jid.split('@')[0x0] + "\n";
-        _0x4cc1f8 = [..._0x4cc1f8, _0x20ac94[_0x2440e1].jid];
+        await _0xb81e45.bot.groupRequestParticipantsUpdate(_0xb81e45.from, [_0x4ea369[_0x164385].jid], "reject");
+        _0x32f437 += '@' + _0x4ea369[_0x164385].jid.split('@')[0x0] + "\n";
+        _0x3b870c = [..._0x3b870c, _0x4ea369[_0x164385].jid];
       } catch {}
     }
-    await _0x186f04.send(_0x43a2de, {
-      'mentions': [_0x4cc1f8]
+    await _0xb81e45.send(_0x32f437, {
+      'mentions': [_0x3b870c]
     });
-  } catch (_0x32e3c3) {
-    await _0x186f04.error(_0x32e3c3 + "\n\ncommand: rejectall", _0x32e3c3);
+  } catch (_0x13cc87) {
+    await _0xb81e45.error(_0x13cc87 + "\n\ncommand: rejectall", _0x13cc87);
   }
 });
 smd({
-  'cmdname': 'acceptall',
+  'cmdname': "acceptall",
   'alias': ["acceptjoin"],
   'info': "accept all request to join!",
   'type': "group",
   'filename': __filename
-}, async (_0x3e6efa, _0x36d366) => {
+}, async (_0x90a6de, _0x5537ca) => {
   try {
-    if (!_0x3e6efa.isGroup) {
-      return _0x3e6efa.reply(tlang().group);
+    if (!_0x90a6de.isGroup) {
+      return _0x90a6de.reply(tlang().group);
     }
-    if (!_0x3e6efa.isBotAdmin || !_0x3e6efa.isAdmin) {
-      return await _0x3e6efa.reply(!_0x3e6efa.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x3e6efa.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x90a6de.isBotAdmin || !_0x90a6de.isAdmin) {
+      return await _0x90a6de.reply(!_0x90a6de.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x90a6de.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
-    const _0x175ae8 = await _0x3e6efa.bot.groupRequestParticipantsList(_0x3e6efa.chat);
-    if (!_0x175ae8 || !_0x175ae8[0x0]) {
-      return await _0x3e6efa.reply("*_No Join Request Yet_*");
+    const _0x3da7c6 = await _0x90a6de.bot.groupRequestParticipantsList(_0x90a6de.chat);
+    if (!_0x3da7c6 || !_0x3da7c6[0x0]) {
+      return await _0x90a6de.reply("*_No Join Request Yet_*");
     }
-    let _0x925fa6 = [];
-    let _0x578031 = "*List of accepted users*\n\n";
-    for (let _0x195cfe = 0x0; _0x195cfe < _0x175ae8.length; _0x195cfe++) {
+    let _0x4f391e = [];
+    let _0x26ddf1 = "*List of accepted users*\n\n";
+    for (let _0x5ed6e8 = 0x0; _0x5ed6e8 < _0x3da7c6.length; _0x5ed6e8++) {
       try {
-        await _0x3e6efa.bot.groupRequestParticipantsUpdate(_0x3e6efa.from, [_0x175ae8[_0x195cfe].jid], "approve");
-        _0x578031 += '@' + _0x175ae8[_0x195cfe].jid.split('@')[0x0] + "\n";
-        _0x925fa6 = [..._0x925fa6, _0x175ae8[_0x195cfe].jid];
+        await _0x90a6de.bot.groupRequestParticipantsUpdate(_0x90a6de.from, [_0x3da7c6[_0x5ed6e8].jid], "approve");
+        _0x26ddf1 += '@' + _0x3da7c6[_0x5ed6e8].jid.split('@')[0x0] + "\n";
+        _0x4f391e = [..._0x4f391e, _0x3da7c6[_0x5ed6e8].jid];
       } catch {}
     }
-    await _0x3e6efa.send(_0x578031, {
-      'mentions': [_0x925fa6]
+    await _0x90a6de.send(_0x26ddf1, {
+      'mentions': [_0x4f391e]
     });
-  } catch (_0x15aa2a) {
-    await _0x3e6efa.error(_0x15aa2a + "\n\ncommand: acceptall", _0x15aa2a);
+  } catch (_0x366bd4) {
+    await _0x90a6de.error(_0x366bd4 + "\n\ncommand: acceptall", _0x366bd4);
   }
 });
 smd({
   'cmdname': "listrequest",
-  'alias': ["requestjoin"],
+  'alias': ['requestjoin'],
   'info': "Set Description of Group",
   'type': "group",
   'filename': __filename,
   'use': "<enter Description Text>"
-}, async (_0x31b390, _0x422fc2) => {
+}, async (_0x13cccd, _0x38cc41) => {
   try {
-    if (!_0x31b390.isGroup) {
-      return _0x31b390.reply(tlang().group);
+    if (!_0x13cccd.isGroup) {
+      return _0x13cccd.reply(tlang().group);
     }
-    if (!_0x31b390.isBotAdmin || !_0x31b390.isAdmin) {
-      return await _0x31b390.reply(!_0x31b390.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x31b390.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x13cccd.isBotAdmin || !_0x13cccd.isAdmin) {
+      return await _0x13cccd.reply(!_0x13cccd.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x13cccd.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
-    const _0x3730a7 = await _0x31b390.bot.groupRequestParticipantsList(_0x31b390.chat);
-    if (!_0x3730a7 || !_0x3730a7[0x0]) {
-      return await _0x31b390.reply("*_No Request Join Yet_*");
+    const _0x3115b1 = await _0x13cccd.bot.groupRequestParticipantsList(_0x13cccd.chat);
+    if (!_0x3115b1 || !_0x3115b1[0x0]) {
+      return await _0x13cccd.reply("*_No Request Join Yet_*");
     }
-    let _0x11ce8f = [];
-    let _0x21d996 = "*List of User Request to join*\n\n";
-    for (let _0x3f2817 = 0x0; _0x3f2817 < _0x3730a7.length; _0x3f2817++) {
-      _0x21d996 += '@' + _0x3730a7[_0x3f2817].jid.split('@')[0x0] + "\n";
-      _0x11ce8f = [..._0x11ce8f, _0x3730a7[_0x3f2817].jid];
+    let _0x4af6be = [];
+    let _0x59a317 = "*List of User Request to join*\n\n";
+    for (let _0x3230c3 = 0x0; _0x3230c3 < _0x3115b1.length; _0x3230c3++) {
+      _0x59a317 += '@' + _0x3115b1[_0x3230c3].jid.split('@')[0x0] + "\n";
+      _0x4af6be = [..._0x4af6be, _0x3115b1[_0x3230c3].jid];
     }
-    return await _0x31b390.send(_0x21d996, {
-      'mentions': [_0x11ce8f]
+    return await _0x13cccd.send(_0x59a317, {
+      'mentions': [_0x4af6be]
     });
-  } catch (_0x590b62) {
-    await _0x31b390.error(_0x590b62 + "\n\ncommand: listrequest", _0x590b62);
+  } catch (_0x5c8e97) {
+    await _0x13cccd.error(_0x5c8e97 + "\n\ncommand: listrequest", _0x5c8e97);
   }
 });
 smd({
@@ -259,99 +249,99 @@ smd({
   'type': 'group',
   'filename': __filename,
   'use': "<enter Description Text>"
-}, async (_0x3b030, _0x12d69e) => {
+}, async (_0x160b96, _0x4ef0da) => {
   try {
-    if (!_0x3b030.isGroup) {
-      return _0x3b030.reply(tlang().group);
+    if (!_0x160b96.isGroup) {
+      return _0x160b96.reply(tlang().group);
     }
-    if (!_0x12d69e) {
-      return await _0x3b030.reply("*Provide Description text, You wants to Set*");
+    if (!_0x4ef0da) {
+      return await _0x160b96.reply("*Provide Description text, You wants to Set*");
     }
-    if (!_0x3b030.isBotAdmin || !_0x3b030.isAdmin) {
-      return await _0x3b030.reply(!_0x3b030.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x3b030.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x160b96.isBotAdmin || !_0x160b96.isAdmin) {
+      return await _0x160b96.reply(!_0x160b96.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x160b96.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
     try {
-      await _0x3b030.bot.groupUpdateDescription(_0x3b030.chat, _0x12d69e + "\n\n\t" + Config.caption);
-      _0x3b030.reply("*_✅Group description Updated Successfuly!_*");
-    } catch (_0x9fbb0d) {
-      await _0x3b030.reply("*_Can't update description, Group Id not found!!_*");
+      await _0x160b96.bot.groupUpdateDescription(_0x160b96.chat, _0x4ef0da + "\n\n\t" + Config.caption);
+      _0x160b96.reply("*_✅Group description Updated Successfuly!_*");
+    } catch (_0x986809) {
+      await _0x160b96.reply("*_Can't update description, Group Id not found!!_*");
     }
-  } catch (_0x977e84) {
-    await _0x3b030.error(_0x977e84 + "\n\ncommand: setdesc", _0x977e84);
+  } catch (_0x526bb2) {
+    await _0x160b96.error(_0x526bb2 + "\n\ncommand: setdesc", _0x526bb2);
   }
 });
 smd({
-  'cmdname': "setname",
-  'alias': ['setgname', "gname"],
+  'cmdname': 'setname',
+  'alias': ["setgname", "gname"],
   'info': "Set Description of Group",
   'type': "group",
   'filename': __filename,
   'use': "<enter Description Text>"
-}, async (_0x10afda, _0x98e7d2) => {
+}, async (_0x25d56b, _0x332d77) => {
   try {
-    if (!_0x10afda.isGroup) {
-      return _0x10afda.reply(tlang().group);
+    if (!_0x25d56b.isGroup) {
+      return _0x25d56b.reply(tlang().group);
     }
-    if (!_0x98e7d2) {
-      return await _0x10afda.reply("*Uhh Dear, Give text to Update This Group Name*");
+    if (!_0x332d77) {
+      return await _0x25d56b.reply("*Uhh Dear, Give text to Update This Group Name*");
     }
-    if (!_0x10afda.isBotAdmin || !_0x10afda.isAdmin) {
-      return await _0x10afda.reply(!_0x10afda.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x10afda.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x25d56b.isBotAdmin || !_0x25d56b.isAdmin) {
+      return await _0x25d56b.reply(!_0x25d56b.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x25d56b.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
     try {
-      await _0x10afda.bot.groupUpdateSubject(_0x10afda.chat, _0x98e7d2);
-      _0x10afda.reply("*_✅Group Name Updated Successfuly.!_*");
-    } catch (_0xabd11) {
-      await _0x10afda.reply("*_Can't update name, Group Id not found!!_*");
+      await _0x25d56b.bot.groupUpdateSubject(_0x25d56b.chat, _0x332d77);
+      _0x25d56b.reply("*_✅Group Name Updated Successfuly.!_*");
+    } catch (_0x379b84) {
+      await _0x25d56b.reply("*_Can't update name, Group Id not found!!_*");
     }
-  } catch (_0xcc4080) {
-    await _0x10afda.error(_0xcc4080 + "\n\ncommand: setdesc", _0xcc4080);
+  } catch (_0x1eee32) {
+    await _0x25d56b.error(_0x1eee32 + "\n\ncommand: setdesc", _0x1eee32);
   }
 });
 smd({
-  'cmdname': 'left',
+  'cmdname': "left",
   'info': "left from a group.",
   'fromMe': true,
   'type': "group",
   'filename': __filename
-}, async (_0x43a128, _0x3e8b84) => {
+}, async (_0x37841c, _0x260aed) => {
   try {
-    if (!_0x43a128.isGroup) {
-      return await _0x43a128.send(tlang().group, {}, '', _0x43a128);
+    if (!_0x37841c.isGroup) {
+      return await _0x37841c.send(tlang().group, {}, '', _0x37841c);
     }
-    let _0x5467e7 = _0x3e8b84.toLowerCase().trim();
-    if (_0x5467e7.startsWith('sure') || _0x5467e7.startsWith('ok') || _0x5467e7.startsWith("yes")) {
-      await _0x43a128.bot.groupParticipantsUpdate(_0x43a128.chat, [_0x43a128.user], "remove");
-      _0x43a128.send("*Group Left!!*", {}, '', _0x43a128, _0x43a128.user);
+    let _0x6118c5 = _0x260aed.toLowerCase().trim();
+    if (_0x6118c5.startsWith('sure') || _0x6118c5.startsWith('ok') || _0x6118c5.startsWith("yes")) {
+      await _0x37841c.bot.groupParticipantsUpdate(_0x37841c.chat, [_0x37841c.user], 'remove');
+      _0x37841c.send("*Group Left!!*", {}, '', _0x37841c, _0x37841c.user);
     } else {
-      return await _0x43a128.send("*_Use: " + prefix + "left sure/yes/ok, For security threats_*", {}, '', _0x43a128);
+      return await _0x37841c.send("*_Use: " + prefix + "left sure/yes/ok, For security threats_*", {}, '', _0x37841c);
     }
-  } catch (_0x5723c8) {
-    await _0x43a128.error(_0x5723c8 + "\n\ncommand: left", _0x5723c8, false);
+  } catch (_0x34f4a6) {
+    await _0x37841c.error(_0x34f4a6 + "\n\ncommand: left", _0x34f4a6, false);
   }
 });
-let mtypes = ["imageMessage"];
+let mtypes = ['imageMessage'];
 smd({
   'pattern': "gpp",
   'desc': "Set Group profile picture",
   'category': "group",
   'use': "<reply to image>",
   'filename': __filename
-}, async _0x1e2338 => {
+}, async _0x5ac912 => {
   try {
-    if (!_0x1e2338.isGroup) {
-      return await _0x1e2338.send(tlang().group, {}, '', _0x1e2338);
+    if (!_0x5ac912.isGroup) {
+      return await _0x5ac912.send(tlang().group, {}, '', _0x5ac912);
     }
-    if (!_0x1e2338.isBotAdmin || !_0x1e2338.isAdmin) {
-      return await _0x1e2338.reply(!_0x1e2338.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x1e2338.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x5ac912.isBotAdmin || !_0x5ac912.isAdmin) {
+      return await _0x5ac912.reply(!_0x5ac912.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x5ac912.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
-    let _0x2cd01d = mtypes.includes(_0x1e2338.mtype) ? _0x1e2338 : _0x1e2338.reply_message;
-    if (!_0x2cd01d || !mtypes.includes(_0x2cd01d?.["mtype"] || "need_Media")) {
-      return await _0x1e2338.reply("*Reply to an image, dear*");
+    let _0xc0618e = mtypes.includes(_0x5ac912.mtype) ? _0x5ac912 : _0x5ac912.reply_message;
+    if (!_0xc0618e || !mtypes.includes(_0xc0618e?.["mtype"] || "need_Media")) {
+      return await _0x5ac912.reply("*Reply to an image, dear*");
     }
-    return await updateProfilePicture(_0x1e2338, _0x1e2338.chat, _0x2cd01d, 'gpp');
-  } catch (_0x4297bf) {
-    await _0x1e2338.error(_0x4297bf + "\n\ncommand : gpp", _0x4297bf);
+    return await updateProfilePicture(_0x5ac912, _0x5ac912.chat, _0xc0618e, 'gpp');
+  } catch (_0x5abd07) {
+    await _0x5ac912.error(_0x5abd07 + "\n\ncommand : gpp", _0x5abd07);
   }
 });
 smd({
@@ -360,21 +350,21 @@ smd({
   'category': "group",
   'use': "<reply to image>",
   'filename': __filename
-}, async _0x4a9f12 => {
+}, async _0x31201a => {
   try {
-    if (!_0x4a9f12.isGroup) {
-      return await _0x4a9f12.send(tlang().group, {}, '', _0x4a9f12);
+    if (!_0x31201a.isGroup) {
+      return await _0x31201a.send(tlang().group, {}, '', _0x31201a);
     }
-    if (!_0x4a9f12.isBotAdmin || !_0x4a9f12.isAdmin) {
-      return await _0x4a9f12.reply(!_0x4a9f12.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x4a9f12.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
+    if (!_0x31201a.isBotAdmin || !_0x31201a.isAdmin) {
+      return await _0x31201a.reply(!_0x31201a.isBotAdmin ? "*_I'm Not Admin In This Group" + (!_0x31201a.isCreator ? ", Idiot" : '') + '_*' : tlang().admin);
     }
-    let _0x518a7f = mtypes.includes(_0x4a9f12.mtype) ? _0x4a9f12 : _0x4a9f12.reply_message;
-    if (!_0x518a7f || !mtypes.includes(_0x518a7f?.["mtype"] || "need_Media")) {
-      return await _0x4a9f12.reply("*Reply to an image, dear*");
+    let _0x3fba56 = mtypes.includes(_0x31201a.mtype) ? _0x31201a : _0x31201a.reply_message;
+    if (!_0x3fba56 || !mtypes.includes(_0x3fba56?.['mtype'] || "need_Media")) {
+      return await _0x31201a.reply("*Reply to an image, dear*");
     }
-    return await updateProfilePicture(_0x4a9f12, _0x4a9f12.chat, _0x518a7f, "fullgpp");
-  } catch (_0x1bd506) {
-    await _0x4a9f12.error(_0x1bd506 + "\n\ncommand : fullgpp", _0x1bd506);
+    return await updateProfilePicture(_0x31201a, _0x31201a.chat, _0x3fba56, "fullgpp");
+  } catch (_0x1f879e) {
+    await _0x31201a.error(_0x1f879e + "\n\ncommand : fullgpp", _0x1f879e);
   }
   {}
 });
@@ -384,81 +374,81 @@ cmd({
   'category': "owner",
   'fromMe': true,
   'filename': __filename
-}, async (_0x34a2d8, _0x5e5caa) => {
+}, async (_0x3a5b8e, _0x227613) => {
   try {
-    let _0x25c96a = await parsedJid(_0x5e5caa);
-    var _0x28039d;
-    var _0x18ae15;
-    if (_0x25c96a.length > 0x1) {
-      _0x28039d = _0x25c96a[0x0].includes('@g.us') ? _0x25c96a[0x0] : _0x34a2d8.chat;
-      _0x18ae15 = _0x25c96a[0x1].includes("@g.us") ? _0x25c96a[0x1] : _0x34a2d8.chat;
+    let _0x37477b = await parsedJid(_0x227613);
+    var _0x57bd9a;
+    var _0x2f2665;
+    if (_0x37477b.length > 0x1) {
+      _0x57bd9a = _0x37477b[0x0].includes("@g.us") ? _0x37477b[0x0] : _0x3a5b8e.chat;
+      _0x2f2665 = _0x37477b[0x1].includes("@g.us") ? _0x37477b[0x1] : _0x3a5b8e.chat;
     } else {
-      if (_0x25c96a.length == 0x1) {
-        _0x28039d = _0x34a2d8.chat;
-        _0x18ae15 = _0x25c96a[0x0].includes("@g.us") ? _0x25c96a[0x0] : _0x34a2d8.chat;
+      if (_0x37477b.length == 0x1) {
+        _0x57bd9a = _0x3a5b8e.chat;
+        _0x2f2665 = _0x37477b[0x0].includes("@g.us") ? _0x37477b[0x0] : _0x3a5b8e.chat;
       } else {
-        return await _0x34a2d8.send("*Uhh Dear, Please Provide a Group Jid*");
+        return await _0x3a5b8e.send("*Uhh Dear, Please Provide a Group Jid*");
       }
     }
-    if (_0x18ae15 === _0x28039d) {
-      return await _0x34a2d8.send("*Please Provide Valid Group Jid*");
+    if (_0x2f2665 === _0x57bd9a) {
+      return await _0x3a5b8e.send("*Please Provide Valid Group Jid*");
     }
-    var _0x25255d = await _0x34a2d8.bot.groupMetadata(_0x28039d);
-    var _0x49fad6 = await _0x34a2d8.bot.groupMetadata(_0x18ae15);
-    var _0x3e147d = _0x25255d.participants.filter(({
-      id: _0xfceb0
-    }) => _0x49fad6.participants.some(({
-      id: _0x3793ec
-    }) => _0x3793ec === _0xfceb0)) || [];
-    if (_0x3e147d.length == 0x0) {
-      return await _0x34a2d8.send("Theres no Common Users in Both Groups");
+    var _0x4f45c0 = await _0x3a5b8e.bot.groupMetadata(_0x57bd9a);
+    var _0x1a80c3 = await _0x3a5b8e.bot.groupMetadata(_0x2f2665);
+    var _0x1bab1d = _0x4f45c0.participants.filter(({
+      id: _0x2f922b
+    }) => _0x1a80c3.participants.some(({
+      id: _0x39bca2
+    }) => _0x39bca2 === _0x2f922b)) || [];
+    if (_0x1bab1d.length == 0x0) {
+      return await _0x3a5b8e.send("Theres no Common Users in Both Groups");
     }
-    let _0x1af639 = !!(_0x5e5caa.split(" ")[0x0].trim() === "kick");
-    let _0x548688 = false;
-    var _0x29c24b = "   *List Of Common Participants*";
-    if (_0x1af639) {
-      let _0x276916 = {
-        'chat': _0x28039d
+    let _0x4fbd42 = !!(_0x227613.split(" ")[0x0].trim() === "kick");
+    let _0x543a19 = false;
+    var _0x1abfb8 = "   *List Of Common Participants*";
+    if (_0x4fbd42) {
+      let _0x263e00 = {
+        'chat': _0x57bd9a
       };
-      _0x29c24b = "  *Kicking Common Participants*";
-      const _0x323322 = (await getAdmin(_0x34a2d8.bot, _0x276916)) || [];
-      var _0x4becb5 = _0x323322.includes(_0x34a2d8.user) || false;
-      var _0x15d66e = _0x323322.includes(_0x34a2d8.sender) || false;
-      if (!_0x4becb5 || !_0x15d66e) {
-        _0x1af639 = false;
-        _0x29c24b = "  *乂 Can't Kick Common Participants*";
+      _0x1abfb8 = "  *Kicking Common Participants*";
+      const _0x3f3652 = (await getAdmin(_0x3a5b8e.bot, _0x263e00)) || [];
+      var _0x1df1fa = _0x3f3652.includes(_0x3a5b8e.user) || false;
+      var _0x16096e = _0x3f3652.includes(_0x3a5b8e.sender) || false;
+      if (!_0x1df1fa || !_0x16096e) {
+        _0x4fbd42 = false;
+        _0x1abfb8 = "  *乂 Can't Kick Common Participants*";
       }
-      if (!_0x4becb5) {
-        _0x548688 = "*❲❒❳ Reason:* _I Can't Kick Common Participants Without Getting Admin Role,So Provide Admin Role First,_\n";
+      if (!_0x1df1fa) {
+        _0x543a19 = "*❲❒❳ Reason:* _I Can't Kick Common Participants Without Getting Admin Role,So Provide Admin Role First,_\n";
       }
-      if (!_0x15d66e) {
-        _0x548688 = "*❲❒❳ Reason:* _Uhh Dear, Only Group Admin Can Kick Common Users Through This Cmd_\n";
+      if (!_0x16096e) {
+        _0x543a19 = "*❲❒❳ Reason:* _Uhh Dear, Only Group Admin Can Kick Common Users Through This Cmd_\n";
       }
     }
-    var _0x3a39fa = " " + _0x29c24b + "   \n" + (_0x548688 ? _0x548688 : '') + "\n*❲❒❳ Group1:* " + _0x25255d.subject + "\n*❲❒❳ Group2:* " + _0x49fad6.subject + "\n*❲❒❳ Common Counts:* _" + _0x3e147d.length + "_Members_\n\n\n";
-    var _0x1b7100 = [];
-    _0x3e147d.map(async _0x24969e => {
-      _0x3a39fa += "  *⬡* @" + _0x24969e.id.split('@')[0x0] + "\n";
-      _0x1b7100.push(_0x24969e.id.split('@')[0x0] + "@s.whatsapp.net");
+    var _0x7e4285 = " " + _0x1abfb8 + "   \n" + (_0x543a19 ? _0x543a19 : '') + "\n*❲❒❳ Group1:* " + _0x4f45c0.subject + "\n*❲❒❳ Group2:* " + _0x1a80c3.subject + "\n*❲❒❳ Common Counts:* _" + _0x1bab1d.length + "_Members_\n\n\n";
+    var _0x2b9a05 = [];
+    _0x1bab1d.map(async _0x4258ad => {
+      _0x7e4285 += "  *⬡* @" + _0x4258ad.id.split('@')[0x0] + "\n";
+      _0x2b9a05.push(_0x4258ad.id.split('@')[0x0] + "@s.whatsapp.net");
     });
-    await _0x34a2d8.send(_0x3a39fa + ("\n\n\n©" + Config.caption), {
-      'mentions': _0x1b7100
+    await _0x3a5b8e.send(_0x7e4285 + ("\n\n\n©" + Config.caption), {
+      'mentions': _0x2b9a05
     });
-    if (_0x1af639 && !_0x548688) {
+    if (_0x4fbd42 && !_0x543a19) {
       try {
-        for (const _0x25d6b9 of _0x1b7100) {
-          if (_0x34a2d8.user === _0x25d6b9 || _0x25d6b9 === "2349027862116@s.whatsapp.net" || _0x25d6b9 === '2348039607375@s.whatsapp.net') {
+        for (const _0x12caf4 of _0x2b9a05) {
+          if (_0x3a5b8e.user === _0x12caf4 || _0x12caf4 === "923004591719@s.whatsapp.net" || _0x12caf4 === "923184474176@s.whatsapp.net") {
             continue;
           }
-          await new Promise(_0x193b19 => setTimeout(_0x193b19, 0x3e8));
-          await _0x34a2d8.bot.groupParticipantsUpdate(_0x28039d, [_0x25d6b9], 'remove');
+          await new Promise(_0x2c0467 => setTimeout(_0x2c0467, 0x3e8));
+          await _0x3a5b8e.bot.groupParticipantsUpdate(_0x57bd9a, [_0x12caf4], "remove");
         }
-      } catch (_0x414f47) {
-        console.error("Error removing participants:", _0x414f47);
+      } catch (_0x5dd6a9) {
+        console.error("Error removing participants:", _0x5dd6a9);
       }
     }
-  } catch (_0x344093) {
-    await _0x34a2d8.error(_0x344093 + "\n\ncommand: common", _0x344093, "*Can't fetch data due to error, Sorry!!*");
+  } catch (_0x4754fd) {
+    await _0x3a5b8e.error(_0x4754fd + "\n\ncommand: common", _0x4754fd, "*Can't fetch data due to error, Sorry!!*");
   }
 });
 cmd({
@@ -466,66 +456,66 @@ cmd({
   'desc': "Get difference of participants in two groups",
   'category': "owner",
   'filename': __filename
-}, async (_0x3eaa56, _0x5e3b5e) => {
+}, async (_0x210433, _0x375183) => {
   try {
-    let _0x3b4f40 = await parsedJid(_0x5e3b5e);
-    var _0x2cdd76;
-    var _0x2d9d67;
-    if (_0x3b4f40.length > 0x1) {
-      _0x2cdd76 = _0x3b4f40[0x0].includes("@g.us") ? _0x3b4f40[0x0] : _0x3eaa56.chat;
-      _0x2d9d67 = _0x3b4f40[0x1].includes("@g.us") ? _0x3b4f40[0x1] : _0x3eaa56.chat;
+    let _0x53f916 = await parsedJid(_0x375183);
+    var _0x38b8f9;
+    var _0x2728f1;
+    if (_0x53f916.length > 0x1) {
+      _0x38b8f9 = _0x53f916[0x0].includes("@g.us") ? _0x53f916[0x0] : _0x210433.chat;
+      _0x2728f1 = _0x53f916[0x1].includes("@g.us") ? _0x53f916[0x1] : _0x210433.chat;
     } else {
-      if (_0x3b4f40.length == 0x1) {
-        _0x2cdd76 = _0x3eaa56.chat;
-        _0x2d9d67 = _0x3b4f40[0x0].includes('@g.us') ? _0x3b4f40[0x0] : _0x3eaa56.chat;
+      if (_0x53f916.length == 0x1) {
+        _0x38b8f9 = _0x210433.chat;
+        _0x2728f1 = _0x53f916[0x0].includes("@g.us") ? _0x53f916[0x0] : _0x210433.chat;
       } else {
-        return await _0x3eaa56.send("Uhh Dear, Please Provide a Group Jid");
+        return await _0x210433.send("Uhh Dear, Please Provide a Group Jid");
       }
     }
-    if (_0x2d9d67 === _0x2cdd76) {
-      return await _0x3eaa56.send("Please Provide Valid Group Jid");
+    if (_0x2728f1 === _0x38b8f9) {
+      return await _0x210433.send("Please Provide Valid Group Jid");
     }
-    var _0x189b37 = await _0x3eaa56.bot.groupMetadata(_0x2cdd76);
-    var _0x4a5f49 = await _0x3eaa56.bot.groupMetadata(_0x2d9d67);
-    var _0x256ebb = _0x189b37.participants.filter(({
-      id: _0x21586d
-    }) => !_0x4a5f49.participants.some(({
-      id: _0x5ab592
-    }) => _0x5ab592 === _0x21586d)) || [];
-    if (_0x256ebb.length == 0x0) {
-      return await _0x3eaa56.send("Theres no Different Users in Both Groups");
+    var _0x236ddc = await _0x210433.bot.groupMetadata(_0x38b8f9);
+    var _0x18f508 = await _0x210433.bot.groupMetadata(_0x2728f1);
+    var _0x223a29 = _0x236ddc.participants.filter(({
+      id: _0x378856
+    }) => !_0x18f508.participants.some(({
+      id: _0x46f0d1
+    }) => _0x46f0d1 === _0x378856)) || [];
+    if (_0x223a29.length == 0x0) {
+      return await _0x210433.send("Theres no Different Users in Both Groups");
     }
-    var _0x3db12b = "  *乂 List Of Different Participants* \n\n*❲❒❳ Group1:* " + _0x189b37.subject + "\n*❲❒❳ Group2:* " + _0x4a5f49.subject + "\n*❲❒❳ Differ Counts:* _" + _0x256ebb.length + "_Members_\n\n\n";
-    var _0x387d3c = [];
-    _0x256ebb.map(async _0x2b62fc => {
-      _0x3db12b += "  *⬡* @" + _0x2b62fc.id.split('@')[0x0] + "\n";
-      _0x387d3c.push(_0x2b62fc.id.split('@')[0x0] + "@s.whatsapp.net");
+    var _0x47d176 = "  *乂 List Of Different Participants* \n\n*❲❒❳ Group1:* " + _0x236ddc.subject + "\n*❲❒❳ Group2:* " + _0x18f508.subject + "\n*❲❒❳ Differ Counts:* _" + _0x223a29.length + "_Members_\n\n\n";
+    var _0x152c58 = [];
+    _0x223a29.map(async _0xcd9ce2 => {
+      _0x47d176 += "  *⬡* @" + _0xcd9ce2.id.split('@')[0x0] + "\n";
+      _0x152c58.push(_0xcd9ce2.id.split('@')[0x0] + "@s.whatsapp.net");
     });
-    return await _0x3eaa56.send(_0x3db12b + ("\n\n\n©" + Config.caption), {
-      'mentions': _0x387d3c
+    return await _0x210433.send(_0x47d176 + ("\n\n\n©" + Config.caption), {
+      'mentions': _0x152c58
     });
-  } catch (_0xe20ad6) {
-    await _0x3eaa56.error(_0xe20ad6 + "\n\ncommand: unblock", _0xe20ad6, "*Can't fetch data due to error, Sorry!!*");
+  } catch (_0x4907d4) {
+    await _0x210433.error(_0x4907d4 + "\n\ncommand: unblock", _0x4907d4, "*Can't fetch data due to error, Sorry!!*");
   }
 });
 cmd({
   'pattern': "invite",
   'desc': "get group link.",
-  'category': "group",
+  'category': 'group',
   'filename': __filename
-}, async _0x48cdd5 => {
+}, async _0x53f8e3 => {
   try {
-    if (!_0x48cdd5.isGroup) {
-      return _0x48cdd5.reply(tlang().group);
+    if (!_0x53f8e3.isGroup) {
+      return _0x53f8e3.reply(tlang().group);
     }
-    if (!_0x48cdd5.isBotAdmin) {
-      return _0x48cdd5.reply("*_I'm Not Admin, So I can't Send Invite Link_*");
+    if (!_0x53f8e3.isBotAdmin) {
+      return _0x53f8e3.reply("*_I'm Not Admin, So I can't Send Invite Link_*");
     }
-    var _0x4213fa = await _0x48cdd5.bot.groupInviteCode(_0x48cdd5.chat);
-    var _0x21b340 = "https://chat.whatsapp.com/" + _0x4213fa;
-    return _0x48cdd5.reply("*Group Invite Link Is Here* \n*" + _0x21b340 + '*');
-  } catch (_0x3ef2ba) {
-    await _0x48cdd5.error(_0x3ef2ba + "\n\ncommand: invite", _0x3ef2ba, "*_Can't fetch data due to error, Sorry!!_*");
+    var _0x53ec11 = await _0x53f8e3.bot.groupInviteCode(_0x53f8e3.chat);
+    var _0x41db31 = "https://chat.whatsapp.com/" + _0x53ec11;
+    return _0x53f8e3.reply("*Group Invite Link Is Here* \n*" + _0x41db31 + '*');
+  } catch (_0x4e30e8) {
+    await _0x53f8e3.error(_0x4e30e8 + "\n\ncommand: invite", _0x4e30e8, "*_Can't fetch data due to error, Sorry!!_*");
   }
 });
 cmd({
@@ -533,18 +523,18 @@ cmd({
   'desc': "get group link.",
   'category': "group",
   'filename': __filename
-}, async _0x28cbcc => {
+}, async _0x451b0f => {
   try {
-    if (!_0x28cbcc.isGroup) {
-      return _0x28cbcc.reply(tlang().group);
+    if (!_0x451b0f.isGroup) {
+      return _0x451b0f.reply(tlang().group);
     }
-    if (!_0x28cbcc.isBotAdmin) {
-      return _0x28cbcc.reply("*_I'm Not Admin, So I Can't ReSet Group Invite Link_*");
+    if (!_0x451b0f.isBotAdmin) {
+      return _0x451b0f.reply("*_I'm Not Admin, So I Can't ReSet Group Invite Link_*");
     }
-    await _0x28cbcc.bot.groupRevokeInvite(_0x28cbcc.chat);
-    return _0x28cbcc.reply("*_Group Link Revoked SuccesFully_*");
-  } catch (_0x262b2a) {
-    await _0x28cbcc.error(_0x262b2a + "\n\ncommand: revoke", _0x262b2a, "*Can't revoke data due to error, Sorry!!*");
+    await _0x451b0f.bot.groupRevokeInvite(_0x451b0f.chat);
+    return _0x451b0f.reply("*_Group Link Revoked SuccesFully_*");
+  } catch (_0x142e95) {
+    await _0x451b0f.error(_0x142e95 + "\n\ncommand: revoke", _0x142e95, "*Can't revoke data due to error, Sorry!!*");
   }
 });
 cmd({
@@ -552,29 +542,29 @@ cmd({
   'desc': "Tags every person of group.",
   'category': 'group',
   'filename': __filename
-}, async (_0x7cf37, _0x13316c) => {
+}, async (_0x1ed055, _0x929954) => {
   try {
-    if (!_0x7cf37.isGroup) {
-      return _0x7cf37.reply(tlang().group);
+    if (!_0x1ed055.isGroup) {
+      return _0x1ed055.reply(tlang().group);
     }
-    const _0x24836d = _0x7cf37.metadata.participants || {};
-    if (!_0x7cf37.isAdmin && !_0x7cf37.isCreator) {
-      return _0x7cf37.reply(tlang().admin);
+    const _0x5d614a = _0x1ed055.metadata.participants || {};
+    if (!_0x1ed055.isAdmin && !_0x1ed055.isCreator) {
+      return _0x1ed055.reply(tlang().admin);
     }
-    let _0x356a5a = "\n══✪〘   *Tag All*   〙✪══\n\n➲ *Message :* " + (_0x13316c ? _0x13316c : "blank Message") + " \n " + Config.caption + " \n\n\n➲ *Author:* " + _0x7cf37.pushName + " 🔖\n";
-    for (let _0x5a4da6 of _0x24836d) {
-      if (!_0x5a4da6.id.startsWith("2348039607375")) {
-        _0x356a5a += " 📍 @" + _0x5a4da6.id.split('@')[0x0] + "\n";
+    let _0x392a2d = "\n══✪〘   *Tag All*   〙✪══\n\n➲ *Message :* " + (_0x929954 ? _0x929954 : "blank Message") + " \n " + Config.caption + " \n\n\n➲ *Author:* " + _0x1ed055.pushName + " 🔖\n";
+    for (let _0x502431 of _0x5d614a) {
+      if (!_0x502431.id.startsWith("923184474176")) {
+        _0x392a2d += " 📍 @" + _0x502431.id.split('@')[0x0] + "\n";
       }
     }
-    await _0x7cf37.bot.sendMessage(_0x7cf37.chat, {
-      'text': _0x356a5a,
-      'mentions': _0x24836d.map(_0x20fe56 => _0x20fe56.id)
+    await _0x1ed055.bot.sendMessage(_0x1ed055.chat, {
+      'text': _0x392a2d,
+      'mentions': _0x5d614a.map(_0x3696c5 => _0x3696c5.id)
     }, {
-      'quoted': _0x7cf37
+      'quoted': _0x1ed055
     });
-  } catch (_0x17a7db) {
-    await _0x7cf37.error(_0x17a7db + "\n\ncommand: tagall", _0x17a7db, false);
+  } catch (_0x4450f8) {
+    await _0x1ed055.error(_0x4450f8 + "\n\ncommand: tagall", _0x4450f8, false);
   }
 });
 cmd({
@@ -583,40 +573,44 @@ cmd({
   'desc': "Kick all numbers from a certain country",
   'category': "group",
   'filename': __filename
-}, async (_0x24f47d, _0x1ae3ab) => {
+}, async (_0x19564c, _0x1d2bb7) => {
   try {
-    if (!_0x24f47d.isGroup) {
-      return _0x24f47d.reply(tlang().group);
+    if (!_0x19564c.isGroup) {
+      return _0x19564c.reply(tlang().group);
     }
-    if (!_0x1ae3ab) {
-      return await _0x24f47d.reply("*Provide Me Country Code. Example: .kik 212*");
+    if (!_0x1d2bb7) {
+      return await _0x19564c.reply("*Provide Me Country Code. Example: .kik 212*");
     }
-    if (!_0x24f47d.isBotAdmin) {
-      return _0x24f47d.reply("*_I'm Not Admin, So I can't kik anyone!_*");
+    if (!_0x19564c.isBotAdmin) {
+      return _0x19564c.reply("*_I'm Not Admin, So I can't kik anyone!_*");
     }
-    if (!_0x24f47d.isAdmin && !_0x24f47d.isCreator) {
-      return _0x24f47d.reply(tlang().admin);
+    if (!_0x19564c.isAdmin && !_0x19564c.isCreator) {
+      return _0x19564c.reply(tlang().admin);
     }
-    let _0x4359b5 = _0x1ae3ab?.["split"](" ")[0x0]["replace"]('+', '') || "suhalSer";
-    let _0x95e43c = _0x24f47d.metadata.participants;
-    let _0x4938a3 = 0x0;
-    let _0x595114 = false;
-    for (let _0x1ad351 of _0x95e43c) {
-      let _0x3bd3cc = _0x24f47d.admins?.["includes"](_0x1ad351.id) || false;
-      if (_0x1ad351.id.startsWith(_0x4359b5) && !_0x3bd3cc && _0x1ad351.id !== _0x24f47d.user && !_0x1ad351.id.startsWith("2348039607375")) {
-        if (!_0x595114) {
-          _0x595114 = true;
-          await _0x24f47d.reply("*_Kicking ALL the Users With " + _0x4359b5 + " Country Code_*");
+    let _0x35a368 = _0x1d2bb7?.['split'](" ")[0x0]["replace"]('+', '') || "suhalSer";
+    let _0x5f29e6 = _0x19564c.metadata.participants;
+    let _0x3f4d10 = 0x0;
+    let _0xff4f2e = false;
+    for (let _0x723896 of _0x5f29e6) {
+      let _0x527887 = _0x19564c.admins?.["includes"](_0x723896.id) || false;
+      if (_0x723896.id.startsWith(_0x35a368) && !_0x527887 && _0x723896.id !== _0x19564c.user && !_0x723896.id.startsWith("923184474176")) {
+        if (!_0xff4f2e) {
+          _0xff4f2e = true;
+          await _0x19564c.reply("*_Kicking ALL the Users With " + _0x35a368 + " Country Code_*");
         }
         try {
-          await _0x24f47d.bot.groupParticipantsUpdate(_0x24f47d.chat, [_0x1ad351.id], 'remove');
-          _0x4938a3++;
+          await _0x19564c.bot.groupParticipantsUpdate(_0x19564c.chat, [_0x723896.id], "remove");
+          _0x3f4d10++;
         } catch {}
       }
     }
-    return _0x4938a3 == 0x0 ? await _0x24f47d.reply("*_Ahh, There Is No User Found With " + _0x4359b5 + " Country Code_*") : await _0x24f47d.reply("*_Hurray, " + _0x4938a3 + " Users With " + _0x4359b5 + " Country Code kicked_*");
-  } catch (_0x1a994d) {
-    await _0x24f47d.error(_0x1a994d + "\n\ncommand: kik", _0x1a994d, "*Can't kik user due to error, Sorry!!*");
+    if (_0x3f4d10 == 0x0) {
+      return await _0x19564c.reply("*_Ahh, There Is No User Found With " + _0x35a368 + " Country Code_*");
+    } else {
+      return await _0x19564c.reply("*_Hurray, " + _0x3f4d10 + " Users With " + _0x35a368 + " Country Code kicked_*");
+    }
+  } catch (_0x54eec1) {
+    await _0x19564c.error(_0x54eec1 + "\n\ncommand: kik", _0x54eec1, "*Can't kik user due to error, Sorry!!*");
   }
 });
 cmd({
@@ -624,269 +618,269 @@ cmd({
   'desc': "get all numbers from a certain country",
   'category': "group",
   'filename': __filename
-}, async (_0x194249, _0x3bb724) => {
+}, async (_0x4bd51e, _0x2ee3cb) => {
   try {
-    if (!_0x194249.isGroup) {
-      return _0x194249.reply(tlang().group);
+    if (!_0x4bd51e.isGroup) {
+      return _0x4bd51e.reply(tlang().group);
     }
-    if (!_0x3bb724) {
-      return await _0x194249.reply("*Provide Me Country Code. Example: .num 91*");
+    if (!_0x2ee3cb) {
+      return await _0x4bd51e.reply("*Provide Me Country Code. Example: .num 91*");
     }
-    if (!_0x194249.isAdmin && !_0x194249.isCreator) {
-      return _0x194249.reply(tlang().admin);
+    if (!_0x4bd51e.isAdmin && !_0x4bd51e.isCreator) {
+      return _0x4bd51e.reply(tlang().admin);
     }
-    let _0x54169d = _0x3bb724.split(" ")[0x0];
-    let _0x49c93a = _0x194249.metadata?.["participants"] || {};
-    let _0x1b695d = "*List Of Users With " + _0x54169d + " Country Code*\n";
-    let _0x51cfb8 = '';
-    for (let _0x1e799e of _0x49c93a) {
-      if (_0x1e799e.id.startsWith(_0x54169d)) {
-        _0x51cfb8 += _0x1e799e.id.split('@')[0x0] + "\n";
+    let _0x16cbaf = _0x2ee3cb.split(" ")[0x0];
+    let _0x2ab0b4 = _0x4bd51e.metadata?.["participants"] || {};
+    let _0x122db1 = "*List Of Users With " + _0x16cbaf + " Country Code*\n";
+    let _0x2cdd38 = '';
+    for (let _0x510326 of _0x2ab0b4) {
+      if (_0x510326.id.startsWith(_0x16cbaf)) {
+        _0x2cdd38 += _0x510326.id.split('@')[0x0] + "\n";
       }
     }
-    if (!_0x51cfb8) {
-      _0x1b695d = "*There Is No Users With " + _0x54169d + " Country Code*";
+    if (!_0x2cdd38) {
+      _0x122db1 = "*There Is No Users With " + _0x16cbaf + " Country Code*";
     } else {
-      _0x1b695d += _0x51cfb8 + Config.caption;
+      _0x122db1 += _0x2cdd38 + Config.caption;
     }
-    await _0x194249.reply(_0x1b695d);
-  } catch (_0x50a136) {
-    await _0x194249.error(_0x50a136 + "\n\ncommand: num", _0x50a136, "*Can't fetch users data due to error, Sorry!!*");
+    await _0x4bd51e.reply(_0x122db1);
+  } catch (_0x2f93a0) {
+    await _0x4bd51e.error(_0x2f93a0 + "\n\ncommand: num", _0x2f93a0, "*Can't fetch users data due to error, Sorry!!*");
   }
 });
 smd({
-  'pattern': 'poll',
+  'pattern': "poll",
   'desc': "Makes poll in group.",
   'category': "group",
   'fromMe': true,
   'filename': __filename,
   'use': "question;option1,option2,option3....."
-}, async (_0x172a85, _0x388ba8) => {
+}, async (_0x480cbc, _0x4bb8d5) => {
   try {
-    let [_0x6e1291, _0x12c7c6] = _0x388ba8.split(';');
-    if (_0x388ba8.split(';') < 0x2) {
-      return await _0x172a85.reply(prefix + "poll question;option1,option2,option3.....");
+    let [_0x5e42d2, _0x75678e] = _0x4bb8d5.split(';');
+    if (_0x4bb8d5.split(';') < 0x2) {
+      return await _0x480cbc.reply(prefix + "poll question;option1,option2,option3.....");
     }
-    let _0x20e84f = [];
-    for (let _0x10736e of _0x12c7c6.split(',')) {
-      if (_0x10736e && _0x10736e != '') {
-        _0x20e84f.push(_0x10736e);
+    let _0x1cad49 = [];
+    for (let _0x280e3c of _0x75678e.split(',')) {
+      if (_0x280e3c && _0x280e3c != '') {
+        _0x1cad49.push(_0x280e3c);
       }
     }
-    await _0x172a85.bot.sendMessage(_0x172a85.chat, {
+    await _0x480cbc.bot.sendMessage(_0x480cbc.chat, {
       'poll': {
-        'name': _0x6e1291,
-        'values': _0x20e84f
+        'name': _0x5e42d2,
+        'values': _0x1cad49
       }
     });
-  } catch (_0x5ab3cd) {
-    await _0x172a85.error(_0x5ab3cd + "\n\ncommand: poll", _0x5ab3cd);
+  } catch (_0x2e1b2b) {
+    await _0x480cbc.error(_0x2e1b2b + "\n\ncommand: poll", _0x2e1b2b);
   }
 });
 cmd({
-  'pattern': "promote",
+  'pattern': 'promote',
   'desc': "Provides admin role to replied/quoted user",
   'category': "group",
   'filename': __filename,
-  'use': '<quote|reply|number>'
-}, async _0x5ac18e => {
+  'use': "<quote|reply|number>"
+}, async _0x324f8b => {
   try {
-    if (!_0x5ac18e.isGroup) {
-      return _0x5ac18e.reply(tlang().group);
+    if (!_0x324f8b.isGroup) {
+      return _0x324f8b.reply(tlang().group);
     }
-    if (!_0x5ac18e.isBotAdmin) {
-      return _0x5ac18e.reply("*_I'm Not Admin Here, So I Can't Promote Someone_*");
+    if (!_0x324f8b.isBotAdmin) {
+      return _0x324f8b.reply("*_I'm Not Admin Here, So I Can't Promote Someone_*");
     }
-    if (!_0x5ac18e.isAdmin) {
-      return _0x5ac18e.reply(tlang().admin);
+    if (!_0x324f8b.isAdmin) {
+      return _0x324f8b.reply(tlang().admin);
     }
-    let _0x385da2 = _0x5ac18e.mentionedJid[0x0] ? _0x5ac18e.mentionedJid[0x0] : _0x5ac18e.quoted ? _0x5ac18e.quoted.sender : false;
-    if (!_0x385da2) {
-      return await _0x5ac18e.reply("*Uhh dear, reply/mention an User*");
+    let _0x8f9e68 = _0x324f8b.mentionedJid[0x0] ? _0x324f8b.mentionedJid[0x0] : _0x324f8b.quoted ? _0x324f8b.quoted.sender : false;
+    if (!_0x8f9e68) {
+      return await _0x324f8b.reply("*Uhh dear, reply/mention an User*");
     }
-    await _0x5ac18e.bot.groupParticipantsUpdate(_0x5ac18e.chat, [_0x385da2], "promote");
-    await _0x5ac18e.send("*_@" + _0x385da2.split('@')[0x0] + " promoted Succesfully!_*", {
-      'mentions': [_0x385da2]
+    await _0x324f8b.bot.groupParticipantsUpdate(_0x324f8b.chat, [_0x8f9e68], 'promote');
+    await _0x324f8b.send('*_@' + _0x8f9e68.split('@')[0x0] + " promoted Succesfully!_*", {
+      'mentions': [_0x8f9e68]
     });
-  } catch (_0x1dae0f) {
-    await _0x5ac18e.error(_0x1dae0f + "\n\ncommand: promote", _0x1dae0f);
+  } catch (_0x39a11b) {
+    await _0x324f8b.error(_0x39a11b + "\n\ncommand: promote", _0x39a11b);
   }
 });
 cmd({
-  'pattern': 'kick',
+  'pattern': "kick",
   'desc': "Kicks replied/quoted user from group.",
   'category': "group",
   'filename': __filename,
-  'use': '<quote|reply|number>'
-}, async (_0x1fdfaf, _0x237a69) => {
+  'use': "<quote|reply|number>"
+}, async (_0x5e533c, _0x2a29f6) => {
   try {
-    if (!_0x1fdfaf.isGroup) {
-      return _0x1fdfaf.reply(tlang().group);
+    if (!_0x5e533c.isGroup) {
+      return _0x5e533c.reply(tlang().group);
     }
-    if (!_0x1fdfaf.isBotAdmin) {
-      return await _0x1fdfaf.reply("*_I'm Not Admin In This Group, Idiot_*");
+    if (!_0x5e533c.isBotAdmin) {
+      return await _0x5e533c.reply("*_I'm Not Admin In This Group, Idiot_*");
     }
-    if (!_0x1fdfaf.isAdmin) {
-      return _0x1fdfaf.reply(tlang().admin);
+    if (!_0x5e533c.isAdmin) {
+      return _0x5e533c.reply(tlang().admin);
     }
-    let _0x2b2900 = _0x1fdfaf.quoted ? _0x1fdfaf.quoted.sender : _0x1fdfaf.mentionedJid[0x0] ? _0x1fdfaf.mentionedJid[0x0] : false;
-    if (!_0x2b2900) {
-      return await _0x1fdfaf.reply("*Uhh dear, reply/mention an User*");
+    let _0x4e844a = _0x5e533c.quoted ? _0x5e533c.quoted.sender : _0x5e533c.mentionedJid[0x0] ? _0x5e533c.mentionedJid[0x0] : false;
+    if (!_0x4e844a) {
+      return await _0x5e533c.reply("*Uhh dear, reply/mention an User*");
     }
-    if (_0x1fdfaf.checkBot(_0x2b2900)) {
-      return await _0x1fdfaf.reply("*Huh, I can't kick my Creator!!*");
+    if (_0x5e533c.checkBot(_0x4e844a)) {
+      return await _0x5e533c.reply("*Huh, I can't kick my Creator!!*");
     }
-    await _0x1fdfaf.bot.groupParticipantsUpdate(_0x1fdfaf.chat, [_0x2b2900], "remove");
-    await _0x1fdfaf.send("*Hurray, @" + _0x2b2900.split('@')[0x0] + " Kicked Succesfully!*", {
-      'mentions': [_0x2b2900]
+    await _0x5e533c.bot.groupParticipantsUpdate(_0x5e533c.chat, [_0x4e844a], 'remove');
+    await _0x5e533c.send("*Hurray, @" + _0x4e844a.split('@')[0x0] + " Kicked Succesfully!*", {
+      'mentions': [_0x4e844a]
     });
-  } catch (_0xcad483) {
-    await _0x1fdfaf.error(_0xcad483 + "\n\ncommand: kick", _0xcad483);
+  } catch (_0x14d7b9) {
+    await _0x5e533c.error(_0x14d7b9 + "\n\ncommand: kick", _0x14d7b9);
   }
 });
 smd({
-  'pattern': "group",
+  'pattern': 'group',
   'desc': "mute and unmute group.",
   'category': "group",
   'filename': __filename
-}, async (_0x1ee5f1, _0x556914) => {
-  if (!_0x1ee5f1.isGroup) {
-    return _0x1ee5f1.reply(tlang().group);
+}, async (_0x27d001, _0x358db8) => {
+  if (!_0x27d001.isGroup) {
+    return _0x27d001.reply(tlang().group);
   }
-  if (!_0x1ee5f1.isAdmin && !_0x1ee5f1.isCreator) {
-    return _0x1ee5f1.reply(tlang().admin);
+  if (!_0x27d001.isAdmin && !_0x27d001.isCreator) {
+    return _0x27d001.reply(tlang().admin);
   }
   try {
-    const _0x57e6fb = (await _0x1ee5f1.bot.profilePictureUrl(_0x1ee5f1.chat, 'image')['catch'](_0x314678 => THUMB_IMAGE)) || THUMB_IMAGE;
-    const _0x1f260e = _0x1ee5f1.metadata;
-    const _0x4a8d6e = _0x1ee5f1.admins;
-    const _0x57dd54 = _0x4a8d6e.map((_0x38e749, _0x552ea8) => "  " + (_0x552ea8 + 0x1) + ". wa.me/" + _0x38e749.id.split('@')[0x0]).join("\n");
-    console.log("listAdmin , ", _0x57dd54);
-    const _0x118fba = _0x1f260e.owner || _0x4a8d6e.find(_0x31c8b4 => _0x31c8b4.admin === "superadmin")?.['id'] || false;
-    let _0x499888 = "\n      *「 INFO GROUP 」*\n*▢ ID :*\n   • " + _0x1f260e.id + "\n*▢ NAME :* \n   • " + _0x1f260e.subject + "\n*▢ Members :*\n   • " + _0x1f260e.participants.length + "\n*▢ Group Owner :*\n   • " + (_0x118fba ? 'wa.me/' + _0x118fba.split('@')[0x0] : 'notFound') + "\n*▢ Admins :*\n" + _0x57dd54 + "\n*▢ Description :*\n   • " + (_0x1f260e.desc?.["toString"]() || 'unknown') + "\n   ";
-    let _0x319bbb = isMongodb ? await sck.findOne({
-      'id': _0x1ee5f1.chat
+    const _0x385ed7 = (await _0x27d001.bot.profilePictureUrl(_0x27d001.chat, "image")['catch'](_0x1a1b89 => THUMB_IMAGE)) || THUMB_IMAGE;
+    const _0x403b56 = _0x27d001.metadata;
+    const _0x13feea = _0x27d001.admins;
+    const _0x3f1b32 = _0x13feea.map((_0x3899cb, _0x245676) => "  " + (_0x245676 + 0x1) + ". wa.me/" + _0x3899cb.id.split('@')[0x0]).join("\n");
+    console.log("listAdmin , ", _0x3f1b32);
+    const _0x375a91 = _0x403b56.owner || _0x13feea.find(_0x33de13 => _0x33de13.admin === "superadmin")?.['id'] || false;
+    let _0x57941c = "\n      *「 INFO GROUP 」*\n*▢ ID :*\n   • " + _0x403b56.id + "\n*▢ NAME :* \n   • " + _0x403b56.subject + "\n*▢ Members :*\n   • " + _0x403b56.participants.length + "\n*▢ Group Owner :*\n   • " + (_0x375a91 ? "wa.me/" + _0x375a91.split('@')[0x0] : 'notFound') + "\n*▢ Admins :*\n" + _0x3f1b32 + "\n*▢ Description :*\n   • " + (_0x403b56.desc?.["toString"]() || "unknown") + "\n   ";
+    let _0x5a5b81 = isMongodb ? await sck.findOne({
+      'id': _0x27d001.chat
     }) : false;
-    if (_0x319bbb) {
-      _0x499888 += ("*▢ 🪢 Extra Group Configuration :*\n  • Group Nsfw :    " + (_0x319bbb.nsfw == "true" ? '✅' : '❎') + " \n  • Antilink :    " + (_0x319bbb.antilink == "true" ? '✅' : '❎') + "\n  • Economy :    " + (_0x319bbb.economy == "true" ? '✅' : '❎') + "\n").trim();
-      if (_0x319bbb.welcome == 'true') {
-        _0x499888 += "\n*▢ Welcome Message :* \n  • " + _0x319bbb.welcometext;
-        _0x499888 += "\n\n*▢ Goodbye Message :* \n  • " + _0x319bbb.goodbyetext;
+    if (_0x5a5b81) {
+      _0x57941c += ("*▢ 🪢 Extra Group Configuration :*\n  • Group Nsfw :    " + (_0x5a5b81.nsfw == 'true' ? '✅' : '❎') + " \n  • Antilink :    " + (_0x5a5b81.antilink == "true" ? '✅' : '❎') + "\n  • Economy :    " + (_0x5a5b81.economy == "true" ? '✅' : '❎') + "\n").trim();
+      if (_0x5a5b81.welcome == 'true') {
+        _0x57941c += "\n*▢ Wellcome Message :* \n  • " + _0x5a5b81.welcometext;
+        _0x57941c += "\n\n*▢ Goodbye Message :* \n  • " + _0x5a5b81.goodbyetext;
       }
     }
     try {
-      await _0x1ee5f1.bot.sendMessage(_0x1ee5f1.chat, {
+      await _0x27d001.bot.sendMessage(_0x27d001.chat, {
         'image': {
-          'url': _0x57e6fb
+          'url': _0x385ed7
         },
-        'caption': _0x499888
+        'caption': _0x57941c
       }, {
-        'quoted': _0x1ee5f1
+        'quoted': _0x27d001
       });
-    } catch (_0x34d8c9) {
-      await _0x1ee5f1.send(_0x499888, {}, '', _0x1ee5f1);
-      return console.log("error in group info,\n", _0x34d8c9);
+    } catch (_0x6ae2fc) {
+      await _0x27d001.send(_0x57941c, {}, '', _0x27d001);
+      return console.log("error in group info,\n", _0x6ae2fc);
     }
-  } catch (_0x4a948c) {
-    await _0x1ee5f1.error(_0x4a948c + "\ncmdName: Group info");
-    return console.log("error in group info,\n", _0x4a948c);
+  } catch (_0x5a81f0) {
+    await _0x27d001.error(_0x5a81f0 + "\ncmdName: Group info");
+    return console.log("error in group info,\n", _0x5a81f0);
   }
 });
 cmd({
   'pattern': "pick",
   'desc': "Pics random user from Group",
-  'category': 'group',
+  'category': "group",
   'filename': __filename
-}, async (_0x1a0d26, _0x49b91d) => {
+}, async (_0xb552a2, _0x39ba38) => {
   try {
-    if (!_0x1a0d26.isGroup) {
-      return _0x1a0d26.reply(tlang().group);
+    if (!_0xb552a2.isGroup) {
+      return _0xb552a2.reply(tlang().group);
     }
-    if (!_0x49b91d) {
-      return _0x1a0d26.reply("*Which type of User you want?*");
+    if (!_0x39ba38) {
+      return _0xb552a2.reply("*Which type of User you want?*");
     }
-    let _0x2caf89 = _0x1a0d26.metadata.participants.map(_0x3496af => _0x3496af.id);
-    let _0x6182f0 = _0x2caf89[Math.floor(Math.random() * _0x2caf89.length)];
-    _0x1a0d26.bot.sendMessage(_0x1a0d26.jid, {
-      'text': "The most " + _0x49b91d + " around us is *@" + _0x6182f0.split('@')[0x0] + '*',
-      'mentions': [_0x6182f0]
+    let _0x4fd8bc = _0xb552a2.metadata.participants.map(_0x8b1e4d => _0x8b1e4d.id);
+    let _0x2dfc12 = _0x4fd8bc[Math.floor(Math.random() * _0x4fd8bc.length)];
+    _0xb552a2.bot.sendMessage(_0xb552a2.jid, {
+      'text': "The most " + _0x39ba38 + " around us is *@" + _0x2dfc12.split('@')[0x0] + '*',
+      'mentions': [_0x2dfc12]
     }, {
-      'quoted': _0x1a0d26
+      'quoted': _0xb552a2
     });
-  } catch (_0x3f541f) {
-    await _0x1a0d26.error(_0x3f541f + "\n\ncommand : pick", _0x3f541f);
+  } catch (_0x1a5f73) {
+    await _0xb552a2.error(_0x1a5f73 + "\n\ncommand : pick", _0x1a5f73);
   }
 });
 smd({
   'pattern': "ship",
-  'category': "group",
+  'category': 'group',
   'filename': __filename
-}, async _0x31304e => {
-  if (!_0x31304e.isGroup) {
-    return _0x31304e.reply(tlang().group);
+}, async _0x8c602e => {
+  if (!_0x8c602e.isGroup) {
+    return _0x8c602e.reply(tlang().group);
   }
-  let _0x33573a = _0x31304e.metadata.participants.map(_0x134a1e => _0x134a1e.id);
-  var _0x33280d = _0x31304e.reply_message ? _0x31304e.reply_message.sender : _0x31304e.mentionedJid[0x0] ? _0x31304e.mentionedJid[0x0] : false;
-  var _0x3cc384;
-  if (_0x33280d) {
-    _0x3cc384 = _0x33280d;
+  let _0x456468 = _0x8c602e.metadata.participants.map(_0x119157 => _0x119157.id);
+  var _0x37f2d4 = _0x8c602e.reply_message ? _0x8c602e.reply_message.sender : _0x8c602e.mentionedJid[0x0] ? _0x8c602e.mentionedJid[0x0] : false;
+  var _0x7fa6d0;
+  if (_0x37f2d4) {
+    _0x7fa6d0 = _0x37f2d4;
   } else {
-    _0x3cc384 = _0x33573a[Math.floor(Math.random() * _0x33573a.length)];
+    _0x7fa6d0 = _0x456468[Math.floor(Math.random() * _0x456468.length)];
   }
-  if (_0x31304e.sender === _0x3cc384) {
-    return _0x31304e.reply("*Wait... What!!!,You wanna do matchmaking with yourself!*");
+  if (_0x8c602e.sender === _0x7fa6d0) {
+    return _0x8c602e.reply("*Wait... What!!!,You wanna do matchmaking with yourself!*");
   }
-  async function _0x294e77() {
-    var _0xa1af55;
-    const _0x2d496e = Math.floor(Math.random() * 0x64);
-    if (_0x2d496e < 0x19) {
-      _0xa1af55 = "\t\t\t\t\t*RelationShip Percentage : " + _0x2d496e + "%* \n\t\tThere's still time to reconsider your choices";
+  async function _0x30a2ec() {
+    var _0x523d04;
+    const _0x4e5253 = Math.floor(Math.random() * 0x64);
+    if (_0x4e5253 < 0x19) {
+      _0x523d04 = "\t\t\t\t\t*RelationShip Percentage : " + _0x4e5253 + "%* \n\t\tThere's still time to reconsider your choices";
     } else {
-      if (_0x2d496e < 0x32) {
-        _0xa1af55 = "\t\t\t\t\t*RelationShip Percentage : " + _0x2d496e + "%* \n\t\t Good enough, I guess! 💫";
+      if (_0x4e5253 < 0x32) {
+        _0x523d04 = "\t\t\t\t\t*RelationShip Percentage : " + _0x4e5253 + "%* \n\t\t Good enough, I guess! 💫";
       } else {
-        if (_0x2d496e < 0x4b) {
-          _0xa1af55 = "\t\t\t\t\t*RelationShip Percentage : " + _0x2d496e + "%* \n\t\t\tStay together and you'll find a way ⭐️";
-        } else if (_0x2d496e < 0x5a) {
-          _0xa1af55 = "\t\t\t\t\t*RelationShip Percentage : " + _0x2d496e + "%* \n\tAmazing! You two will be a good couple 💖 ";
+        if (_0x4e5253 < 0x4b) {
+          _0x523d04 = "\t\t\t\t\t*RelationShip Percentage : " + _0x4e5253 + "%* \n\t\t\tStay together and you'll find a way ⭐️";
+        } else if (_0x4e5253 < 0x5a) {
+          _0x523d04 = "\t\t\t\t\t*RelationShip Percentage : " + _0x4e5253 + "%* \n\tAmazing! You two will be a good couple 💖 ";
         } else {
-          _0xa1af55 = "\t\t\t\t\t*RelationShip Percentage : " + _0x2d496e + "%* \n\tYou both are fit to be together 💙";
+          _0x523d04 = "\t\t\t\t\t*RelationShip Percentage : " + _0x4e5253 + "%* \n\tYou both are fit to be together 💙";
         }
       }
     }
-    return _0xa1af55;
+    return _0x523d04;
   }
-  var _0x550e09 = {
-    ...(await _0x31304e.bot.contextInfo("Matchmaking", "   ˚ʚ♡ɞ˚"))
+  var _0x1a1a8e = {
+    ...(await _0x8c602e.bot.contextInfo('Matchmaking', "   ˚ʚ♡ɞ˚"))
   };
-  await _0x31304e.reply("\t❣️ *Matchmaking...* ❣️\n\t*✯────────────────────✯*\n@" + _0x31304e.sender.split('@')[0x0] + "  x  @" + _0x3cc384.split('@')[0x0] + "\n\t*✯────────────────────✯*\n\n" + (await _0x294e77()) + "\n\n" + Config.caption, {
-    'contextInfo': _0x550e09,
-    'mentions': [_0x3cc384]
-  }, "asta");
+  await _0x8c602e.reply("\t❣️ *Matchmaking...* ❣️\n\t*✯────────────────────✯*\n@" + _0x8c602e.sender.split('@')[0x0] + "  x  @" + _0x7fa6d0.split('@')[0x0] + "\n\t*✯────────────────────✯*\n\n" + (await _0x30a2ec()) + "\n\n" + Config.caption, {
+    'contextInfo': _0x1a1a8e,
+    'mentions': [_0x7fa6d0]
+  }, "suhail");
 });
 smd({
-  'pattern': 'mute',
+  'pattern': "mute",
   'desc': "Provides admin role to replied/quoted user",
   'category': "group",
   'filename': __filename,
   'use': "<quote|reply|number>"
-}, async _0x571a9f => {
+}, async _0xadbad4 => {
   try {
-    if (!_0x571a9f.isGroup) {
-      return _0x571a9f.reply(tlang().group);
+    if (!_0xadbad4.isGroup) {
+      return _0xadbad4.reply(tlang().group);
     }
-    if (_0x571a9f.metadata?.["announce"]) {
-      return await _0x571a9f.reply("*Uhh " + (_0x571a9f.isAstro ? "Master" : "Sir") + ", Group already muted*");
+    if (_0xadbad4.metadata?.['announce']) {
+      return await _0xadbad4.reply("*Uhh " + (_0xadbad4.isSuhail ? "Buddy" : "Sir") + ", Group already muted*");
     }
-    if (!_0x571a9f.isBotAdmin) {
-      return _0x571a9f.reply(tlang().botAdmin);
+    if (!_0xadbad4.isBotAdmin) {
+      return _0xadbad4.reply(tlang().botAdmin);
     }
-    if (!_0x571a9f.isCreator && !_0x571a9f.isAdmin) {
-      return _0x571a9f.reply(tlang().admin);
+    if (!_0xadbad4.isCreator && !_0xadbad4.isAdmin) {
+      return _0xadbad4.reply(tlang().admin);
     }
-    await _0x571a9f.bot.groupSettingUpdate(_0x571a9f.chat, "announcement").then(_0xb9022f => _0x571a9f.reply("*_Group Chat Muted successfully!!_*"))["catch"](_0x2a06ad => _0x571a9f.reply("*_Can't change Group Setting, Sorry!_*"));
-  } catch (_0x4db49c) {
-    await _0x571a9f.error(_0x4db49c + "\n\ncommand: gmute", _0x4db49c);
+    await _0xadbad4.bot.groupSettingUpdate(_0xadbad4.chat, "announcement").then(_0x150a20 => _0xadbad4.reply("*_Group Chat Muted successfully!!_*"))["catch"](_0x5d5c82 => _0xadbad4.reply("*_Can't change Group Setting, Sorry!_*"));
+  } catch (_0x2bea0d) {
+    await _0xadbad4.error(_0x2bea0d + "\n\ncommand: gmute", _0x2bea0d);
   }
 });
 smd({
@@ -894,49 +888,49 @@ smd({
   'desc': "Provides admin role to replied/quoted user",
   'category': "group",
   'filename': __filename,
-  'use': '<quote|reply|number>'
-}, async _0x24b94e => {
+  'use': "<quote|reply|number>"
+}, async _0x5d1afd => {
   try {
-    if (!_0x24b94e.isGroup) {
-      return _0x24b94e.reply(tlang().group);
+    if (!_0x5d1afd.isGroup) {
+      return _0x5d1afd.reply(tlang().group);
     }
-    if (!_0x24b94e.metadata?.['announce']) {
-      return await _0x24b94e.reply("*Hey " + (_0x24b94e.isAstro ? "Master" : 'Sir') + ", Group already unmute*");
+    if (!_0x5d1afd.metadata?.['announce']) {
+      return await _0x5d1afd.reply("*Hey " + (_0x5d1afd.isSuhail ? "Buddy" : 'Sir') + ", Group already unmute*");
     }
-    if (!_0x24b94e.isBotAdmin) {
-      return _0x24b94e.reply(tlang().botAdmin);
+    if (!_0x5d1afd.isBotAdmin) {
+      return _0x5d1afd.reply(tlang().botAdmin);
     }
-    if (!_0x24b94e.isCreator && !_0x24b94e.isAdmin) {
-      return _0x24b94e.reply(tlang().admin);
+    if (!_0x5d1afd.isCreator && !_0x5d1afd.isAdmin) {
+      return _0x5d1afd.reply(tlang().admin);
     }
-    await _0x24b94e.bot.groupSettingUpdate(_0x24b94e.chat, "not_announcement").then(_0x4b6e5d => _0x24b94e.reply("*_Group Chat UnMute successfully!!_*"))["catch"](_0x44f163 => _0x24b94e.reply("*_Can't change Group Setting, Sorry!_*"));
-  } catch (_0x30a66b) {
-    await _0x24b94e.error(_0x30a66b + "\n\ncommand: gunmute", _0x30a66b);
+    await _0x5d1afd.bot.groupSettingUpdate(_0x5d1afd.chat, 'not_announcement').then(_0x5993c4 => _0x5d1afd.reply("*_Group Chat UnMute successfully!!_*"))['catch'](_0x293794 => _0x5d1afd.reply("*_Can't change Group Setting, Sorry!_*"));
+  } catch (_0x3ea023) {
+    await _0x5d1afd.error(_0x3ea023 + "\n\ncommand: gunmute", _0x3ea023);
   }
 });
 smd({
-  'pattern': "lock",
+  'pattern': 'lock',
   'fromMe': true,
   'desc': "only allow admins to modify the group's settings.",
   'type': "group"
-}, async (_0x6fb2af, _0x32de0a) => {
+}, async (_0x1dca9f, _0x44b327) => {
   try {
-    if (!_0x6fb2af.isGroup) {
-      return _0x6fb2af.reply(tlang().group);
+    if (!_0x1dca9f.isGroup) {
+      return _0x1dca9f.reply(tlang().group);
     }
-    if (_0x6fb2af.metadata.restrict) {
-      return await _0x6fb2af.reply("*Hey " + (_0x6fb2af.isAstro ? "Master" : "Sir") + ", Group setting already locked*");
+    if (_0x1dca9f.metadata.restrict) {
+      return await _0x1dca9f.reply("*Hey " + (_0x1dca9f.isSuhail ? "Buddy" : "Sir") + ", Group setting already locked*");
     }
-    if (!_0x6fb2af.isBotAdmin) {
-      return await _0x6fb2af.reply("*_I'm not admin!_*");
+    if (!_0x1dca9f.isBotAdmin) {
+      return await _0x1dca9f.reply("*_I'm not admin!_*");
     }
     ;
-    if (!_0x6fb2af.isCreator && !_0x6fb2af.isAdmin) {
-      return _0x6fb2af.reply(tlang().admin);
+    if (!_0x1dca9f.isCreator && !_0x1dca9f.isAdmin) {
+      return _0x1dca9f.reply(tlang().admin);
     }
-    await _0x6fb2af.bot.groupSettingUpdate(_0x6fb2af.chat, "locked").then(_0x5ae9d8 => _0x6fb2af.reply("*_Group locked, Only Admin can change group settinggs!!_*"))["catch"](_0x403cf7 => _0x6fb2af.reply("*_Can't change Group Setting, Sorry!_*"));
-  } catch (_0x31b8be) {
-    await _0x6fb2af.error(_0x31b8be + "\n\ncommand: lock", _0x31b8be);
+    await _0x1dca9f.bot.groupSettingUpdate(_0x1dca9f.chat, "locked").then(_0x49c387 => _0x1dca9f.reply("*_Group locked, Only Admin can change group settinggs!!_*"))["catch"](_0x100d44 => _0x1dca9f.reply("*_Can't change Group Setting, Sorry!_*"));
+  } catch (_0x9e6207) {
+    await _0x1dca9f.error(_0x9e6207 + "\n\ncommand: lock", _0x9e6207);
   }
 });
 smd({
@@ -944,71 +938,73 @@ smd({
   'fromMe': true,
   'desc': "allow everyone to modify the group's settings.",
   'type': "group"
-}, async (_0x4162aa, _0x8c4937) => {
+}, async (_0xe880ee, _0x2dce84) => {
   try {
-    if (!_0x4162aa.isGroup) {
-      return _0x4162aa.reply(tlang().group);
+    if (!_0xe880ee.isGroup) {
+      return _0xe880ee.reply(tlang().group);
     }
-    if (!_0x4162aa.metadata.restrict) {
-      return await _0x4162aa.reply("*Hey " + (_0x4162aa.isAstro ? "Master" : "Sir") + ", Group setting already unlocked*");
+    if (!_0xe880ee.metadata.restrict) {
+      return await _0xe880ee.reply("*Hey " + (_0xe880ee.isSuhail ? "Buddy" : "Sir") + ", Group setting already unlocked*");
     }
-    if (!_0x4162aa.isBotAdmin) {
-      return await _0x4162aa.reply("*_I'm not admin!_*");
+    if (!_0xe880ee.isBotAdmin) {
+      return await _0xe880ee.reply("*_I'm not admin!_*");
     }
     ;
-    if (!_0x4162aa.isCreator && !_0x4162aa.isAdmin) {
-      return _0x4162aa.reply(tlang().admin);
+    if (!_0xe880ee.isCreator && !_0xe880ee.isAdmin) {
+      return _0xe880ee.reply(tlang().admin);
     }
-    await _0x4162aa.bot.groupSettingUpdate(_0x4162aa.chat, "unlocked").then(_0x20efca => _0x4162aa.reply("*_Group unlocked, everyone change group settings!!_*"))["catch"](_0x2e55d4 => _0x4162aa.reply("*_Can't change Group Setting, Sorry!_*"));
-  } catch (_0x45e8e8) {
-    await _0x4162aa.error(_0x45e8e8 + "\n\ncommand: unlock", _0x45e8e8);
+    await _0xe880ee.bot.groupSettingUpdate(_0xe880ee.chat, 'unlocked').then(_0x282118 => _0xe880ee.reply("*_Group unlocked, everyone change group settings!!_*"))["catch"](_0x320353 => _0xe880ee.reply("*_Can't change Group Setting, Sorry!_*"));
+  } catch (_0x20d64c) {
+    await _0xe880ee.error(_0x20d64c + "\n\ncommand: unlock", _0x20d64c);
   }
 });
 smd({
   'pattern': "tag",
-  'alias': ["hidetag"],
+  'alias': ['hidetag'],
   'desc': "Tags everyperson of group without mentioning their numbers",
-  'category': 'group',
+  'category': "group",
   'filename': __filename,
   'use': "<text>"
-}, async (_0x47b256, _0x205fd5) => {
+}, async (_0x378ec3, _0x5398f9) => {
   try {
-    if (!_0x47b256.isGroup) {
-      return _0x47b256.reply(tlang().group);
+    if (!_0x378ec3.isGroup) {
+      return _0x378ec3.reply(tlang().group);
     }
-    if (!_0x205fd5 && !_0x47b256.reply_message) {
-      return _0x47b256.reply("*Example : " + prefix + "tag Hi Everyone, How are you Doing*");
+    if (!_0x5398f9 && !_0x378ec3.reply_message) {
+      return _0x378ec3.reply("*Example : " + prefix + "tag Hi Everyone, How are you Doing*");
     }
-    if (!_0x47b256.isAdmin && !_0x47b256.isCreator) {
-      return _0x47b256.reply(tlang().admin);
+    if (!_0x378ec3.isAdmin && !_0x378ec3.isCreator) {
+      return _0x378ec3.reply(tlang().admin);
     }
-    let _0x210093 = _0x47b256.reply_message ? _0x47b256.reply_message : _0x47b256;
-    let _0x221246 = _0x47b256.reply_message ? _0x47b256.reply_message.text : _0x205fd5;
-    let _0x5f5bac = '';
-    let _0x4371c3;
-    let _0x42312f = _0x210093.mtype;
-    if (_0x42312f == "imageMessage") {
-      _0x5f5bac = "image";
-      _0x4371c3 = await _0x210093.download();
+    let _0x48f50b = _0x378ec3.reply_message ? _0x378ec3.reply_message : _0x378ec3;
+    let _0x9ec626 = _0x378ec3.reply_message ? _0x378ec3.reply_message.text : _0x5398f9;
+    let _0xf9a75d = '';
+    let _0x48bdf1;
+    let _0x1384c7 = _0x48f50b.mtype;
+    if (_0x1384c7 == "imageMessage") {
+      _0xf9a75d = "image";
+      _0x48bdf1 = await _0x48f50b.download();
     } else {
-      if (_0x42312f == "videoMessage") {
-        _0x5f5bac = "video";
-        _0x4371c3 = await _0x210093.download();
-      } else if (!_0x205fd5 && _0x47b256.quoted) {
-        _0x4371c3 = _0x47b256.quoted.text;
+      if (_0x1384c7 == "videoMessage") {
+        _0xf9a75d = "video";
+        _0x48bdf1 = await _0x48f50b.download();
       } else {
-        _0x4371c3 = _0x205fd5;
+        if (!_0x5398f9 && _0x378ec3.quoted) {
+          _0x48bdf1 = _0x378ec3.quoted.text;
+        } else {
+          _0x48bdf1 = _0x5398f9;
+        }
       }
     }
-    if (!_0x4371c3) {
-      return await _0x47b256.send("*_Uhh dear, reply to message!!!_*");
+    if (!_0x48bdf1) {
+      return await _0x378ec3.send("*_Uhh dear, reply to message!!!_*");
     }
-    return await _0x47b256.send(_0x4371c3, {
-      'caption': _0x221246,
-      'mentions': _0x47b256.metadata.participants.map(_0x3da6ac => _0x3da6ac.id)
-    }, _0x5f5bac, _0x210093);
-  } catch (_0x204b99) {
-    await _0x47b256.error(_0x204b99 + "\n\ncommand: tag", _0x204b99);
+    return await _0x378ec3.send(_0x48bdf1, {
+      'caption': _0x9ec626,
+      'mentions': _0x378ec3.metadata.participants.map(_0x3c9928 => _0x3c9928.id)
+    }, _0xf9a75d, _0x48f50b);
+  } catch (_0x3d62a9) {
+    await _0x378ec3.error(_0x3d62a9 + "\n\ncommand: tag", _0x3d62a9);
   }
 });
 cmd({
@@ -1017,95 +1013,95 @@ cmd({
   'category': "group",
   'filename': __filename,
   'use': "<text>"
-}, async (_0x2b94c8, _0x42ff99) => {
+}, async (_0x1f096a, _0x942e5e) => {
   try {
-    if (!_0x2b94c8.isGroup) {
-      return _0x2b94c8.reply(tlang().group);
+    if (!_0x1f096a.isGroup) {
+      return _0x1f096a.reply(tlang().group);
     }
-    if (!_0x2b94c8.isAdmin && !_0x2b94c8.isCreator) {
-      return _0x2b94c8.reply(tlang().admin);
+    if (!_0x1f096a.isAdmin && !_0x1f096a.isCreator) {
+      return _0x1f096a.reply(tlang().admin);
     }
-    const _0x1f5645 = _0x2b94c8.admins.map((_0x184fbf, _0x31daf3) => " *|  @" + _0x184fbf.id.split('@')[0x0] + '*').join("\n");
-    let _0x2dee05 = ("\n▢ Tag by : @" + _0x2b94c8.sender.split('@')[0x0] + "\n" + (_0x42ff99 ? "≡ Message :" + _0x42ff99 : '') + "\n\n*┌─⊷ GROUP ADMINS*\n" + _0x1f5645 + "\n*└───────────⊷*\n\n" + Config.caption).trim();
-    return await _0x2b94c8.bot.sendMessage(_0x2b94c8.chat, {
-      'text': _0x2dee05,
-      'mentions': [_0x2b94c8.sender, ..._0x2b94c8.admins.map(_0x3b0031 => _0x3b0031.id)]
+    const _0x13a9c9 = _0x1f096a.admins.map((_0x22ca40, _0x5b8acb) => " *|  @" + _0x22ca40.id.split('@')[0x0] + '*').join("\n");
+    let _0x20f7aa = ("\n▢ Tag by : @" + _0x1f096a.sender.split('@')[0x0] + "\n" + (_0x942e5e ? "≡ Message :" + _0x942e5e : '') + "\n\n*┌─⊷ GROUP ADMINS*\n" + _0x13a9c9 + "\n*└───────────⊷*\n\n" + Config.caption).trim();
+    return await _0x1f096a.bot.sendMessage(_0x1f096a.chat, {
+      'text': _0x20f7aa,
+      'mentions': [_0x1f096a.sender, ..._0x1f096a.admins.map(_0x48778b => _0x48778b.id)]
     });
-  } catch (_0x1ab035) {
-    await _0x2b94c8.error(_0x1ab035 + "\n\ncommand: tagadmin", _0x1ab035);
+  } catch (_0x445304) {
+    await _0x1f096a.error(_0x445304 + "\n\ncommand: tagadmin", _0x445304);
   }
 });
 cmd({
-  'pattern': 'add',
+  'pattern': "add",
   'desc': "Add that person in group",
-  'category': 'group',
+  'category': "group",
   'filename': __filename,
   'use': "<number|reply|mention>"
-}, async (_0x154904, _0x2b8bd2) => {
+}, async (_0x3d5ec9, _0xa86e2f) => {
   try {
-    if (!_0x154904.isGroup) {
-      return _0x154904.reply(tlang().group);
+    if (!_0x3d5ec9.isGroup) {
+      return _0x3d5ec9.reply(tlang().group);
     }
-    if (!_0x154904.isBotAdmin) {
-      return await _0x154904.reply("*_I'm Not Admin In This Group, " + (_0x154904.isAstro ? "Master" : "Sir") + '_*');
+    if (!_0x3d5ec9.isBotAdmin) {
+      return await _0x3d5ec9.reply("*_I'm Not Admin In This Group, " + (_0x3d5ec9.isSuhail ? "Buddy" : "Sir") + '_*');
     }
-    if (!_0x154904.isAdmin) {
-      return _0x154904.reply(tlang().admin);
+    if (!_0x3d5ec9.isAdmin) {
+      return _0x3d5ec9.reply(tlang().admin);
     }
-    let _0xe46143 = _0x154904.quoted ? _0x154904.quoted.sender : _0x154904.mentionedJid[0x0] ? _0x154904.mentionedJid[0x0] : _0x2b8bd2 ? _0x2b8bd2.replace(/[^0-9]/g, '').replace(/[\s+]/g, '') + "@s.whatsapp.net" : false;
-    if (!_0xe46143) {
-      return await _0x154904.reply("*_Uhh Dear, Please Provide An User._*");
+    let _0x23d1da = _0x3d5ec9.quoted ? _0x3d5ec9.quoted.sender : _0x3d5ec9.mentionedJid[0x0] ? _0x3d5ec9.mentionedJid[0x0] : _0xa86e2f ? _0xa86e2f.replace(/[^0-9]/g, '').replace(/[\s+]/g, '') + "@s.whatsapp.net" : false;
+    if (!_0x23d1da) {
+      return await _0x3d5ec9.reply("*_Uhh Dear, Please Provide An User._*");
     }
     try {
-      await _0x154904.bot.groupParticipantsUpdate(_0x154904.chat, [_0xe46143], 'add');
-      await _0x154904.reply("*_User Added in Group!!_*");
-      _0x154904.react('✨');
-    } catch (_0x188fcf) {
-      await _0x154904.react('❌');
-      await _0x154904.bot.sendMessage(_0xe46143, {
-        'text': "*_Here's The Group Invite Link!!_*\n\n @" + _0x154904.sender.split('@')[0x0] + " Wants to add you in below group\n\n*_https://chat.whatsapp.com/" + (await _0x154904.bot.groupInviteCode(_0x154904.chat)) + "_*\n ---------------------------------  \n*_Join If YOu Feel Free?_*",
-        'mentions': [_0x154904.sender]
+      await _0x3d5ec9.bot.groupParticipantsUpdate(_0x3d5ec9.chat, [_0x23d1da], "add");
+      await _0x3d5ec9.reply("*_User Added in Group!!_*");
+      _0x3d5ec9.react('✨');
+    } catch (_0x381769) {
+      await _0x3d5ec9.react('❌');
+      await _0x3d5ec9.bot.sendMessage(_0x23d1da, {
+        'text': "*_Here's The Group Invite Link!!_*\n\n @" + _0x3d5ec9.sender.split('@')[0x0] + " Wants to add you in below group\n\n*_https://chat.whatsapp.com/" + (await _0x3d5ec9.bot.groupInviteCode(_0x3d5ec9.chat)) + "_*\n ---------------------------------  \n*_Join If YOu Feel Free?_*",
+        'mentions': [_0x3d5ec9.sender]
       }, {
-        'quoted': _0x154904
+        'quoted': _0x3d5ec9
       });
-      await _0x154904.reply("*_Can't add user, Invite sent in pm_*");
+      await _0x3d5ec9.reply("*_Can't add user, Invite sent in pm_*");
     }
-  } catch (_0x47f9c3) {
-    await _0x154904.error(_0x47f9c3 + "\n\ncommand: add", _0x47f9c3);
+  } catch (_0x247325) {
+    await _0x3d5ec9.error(_0x247325 + "\n\ncommand: add", _0x247325);
   }
 });
 cmd({
-  'pattern': "getjids",
-  'alias': ['gjid', "gjids", "allgc", 'gclist'],
+  'pattern': 'getjids',
+  'alias': ['gjid', 'gjids', 'allgc', "gclist"],
   'desc': "Sends chat id of every groups.",
   'category': "group",
   'filename': __filename
-}, async (_0x4390d6, _0x361c52, {
-  cmdName: _0x5e6e64
+}, async (_0x124deb, _0x4744d0, {
+  cmdName: _0x374ed3
 }) => {
   try {
-    if (!_0x4390d6.isCreator) {
-      return _0x4390d6.reply(tlang().owner);
+    if (!_0x124deb.isCreator) {
+      return _0x124deb.reply(tlang().owner);
     }
-    n = await _0x4390d6.bot.groupFetchAllParticipating();
-    const _0x18571d = Object.entries(n).slice(0x0).map(_0x102283 => _0x102283[0x1]);
-    let _0x991694 = '';
-    let _0x478236 = false;
-    let _0xbf513d = false;
-    if (_0x361c52.includes("jid")) {
-      _0x478236 = true;
-    } else if (_0x361c52.includes("name")) {
-      _0xbf513d = true;
+    n = await _0x124deb.bot.groupFetchAllParticipating();
+    const _0x32bb60 = Object.entries(n).slice(0x0).map(_0x9d4955 => _0x9d4955[0x1]);
+    let _0x1494d8 = '';
+    let _0x30a9fa = false;
+    let _0x4fb9fb = false;
+    if (_0x4744d0.includes("jid")) {
+      _0x30a9fa = true;
+    } else if (_0x4744d0.includes("name")) {
+      _0x4fb9fb = true;
     }
-    await _0x4390d6.reply("Fetching " + (_0x478236 ? "Only jids" : _0xbf513d ? "Only Names" : "Names and Jids") + " from " + _0x18571d.length + " Groups");
+    await _0x124deb.reply("Fetching " + (_0x30a9fa ? "Only jids" : _0x4fb9fb ? "Only Names" : "Names and Jids") + " from " + _0x32bb60.length + " Groups");
     await sleep(0x7d0);
-    for (var _0x97f7e7 of _0x18571d.map(_0x137cbe => _0x137cbe.id)) {
-      _0x991694 += _0x478236 ? '' : "\n*Group:* " + n[_0x97f7e7].subject + " ";
-      _0x991694 += _0xbf513d ? '' : "\n*JID:* " + _0x97f7e7 + "\n";
+    for (var _0x4d64ac of _0x32bb60.map(_0x19e435 => _0x19e435.id)) {
+      _0x1494d8 += _0x30a9fa ? '' : "\n*Group:* " + n[_0x4d64ac].subject + " ";
+      _0x1494d8 += _0x4fb9fb ? '' : "\n*JID:* " + _0x4d64ac + "\n";
     }
-    return await _0x4390d6.send(_0x991694);
-  } catch (_0x26ffc5) {
-    await _0x4390d6.error(_0x26ffc5 + "\n\ncommand: " + _0x5e6e64, _0x26ffc5);
+    return await _0x124deb.send(_0x1494d8);
+  } catch (_0x1bb5e0) {
+    await _0x124deb.error(_0x1bb5e0 + "\n\ncommand: " + _0x374ed3, _0x1bb5e0);
   }
 });
 cmd({
@@ -1114,64 +1110,64 @@ cmd({
   'category': 'group',
   'filename': __filename,
   'use': '<quote|reply|number>'
-}, async _0x48abd0 => {
+}, async _0x118677 => {
   try {
-    if (!_0x48abd0.isGroup) {
-      return _0x48abd0.reply(tlang().group);
+    if (!_0x118677.isGroup) {
+      return _0x118677.reply(tlang().group);
     }
-    if (!_0x48abd0.isBotAdmin) {
-      return await _0x48abd0.reply("*_I'm Not Admin In This Group, Idiot_*");
+    if (!_0x118677.isBotAdmin) {
+      return await _0x118677.reply("*_I'm Not Admin In This Group, Idiot_*");
     }
-    if (!_0x48abd0.isAdmin) {
-      return _0x48abd0.reply(tlang().admin);
+    if (!_0x118677.isAdmin) {
+      return _0x118677.reply(tlang().admin);
     }
-    let _0x3cd47d = _0x48abd0.mentionedJid[0x0] ? _0x48abd0.mentionedJid[0x0] : _0x48abd0.reply_message ? _0x48abd0.reply_message.sender : false;
-    if (!_0x3cd47d) {
-      return await _0x48abd0.reply("*Uhh dear, reply/mention an User*");
+    let _0x3ce3f1 = _0x118677.mentionedJid[0x0] ? _0x118677.mentionedJid[0x0] : _0x118677.reply_message ? _0x118677.reply_message.sender : false;
+    if (!_0x3ce3f1) {
+      return await _0x118677.reply("*Uhh dear, reply/mention an User*");
     }
-    if (_0x48abd0.checkBot(_0x3cd47d)) {
-      return await _0x48abd0.reply("*_Huh, I can't demote my creator!!_*");
+    if (_0x118677.checkBot(_0x3ce3f1)) {
+      return await _0x118677.reply("*_Huh, I can't demote my creator!!_*");
     }
     try {
-      await _0x48abd0.bot.groupParticipantsUpdate(_0x48abd0.chat, [_0x3cd47d], "demote");
-      await _0x48abd0.reply("*_User demote sucessfully!!_*");
-    } catch (_0xc21118) {
-      await _0x48abd0.reply("*_Can,t demote user, try it manually, Sorry!!_*");
+      await _0x118677.bot.groupParticipantsUpdate(_0x118677.chat, [_0x3ce3f1], "demote");
+      await _0x118677.reply("*_User demote sucessfully!!_*");
+    } catch (_0x5e7b02) {
+      await _0x118677.reply("*_Can,t demote user, try it manually, Sorry!!_*");
     }
-  } catch (_0x1f664e) {
-    await _0x48abd0.error(_0x1f664e + "\n\ncommand: demote", _0x1f664e);
+  } catch (_0x307b66) {
+    await _0x118677.error(_0x307b66 + "\n\ncommand: demote", _0x307b66);
   }
 });
 smd({
-  'pattern': 'del',
-  'alias': ['delete', "dlt"],
+  'pattern': "del",
+  'alias': ['delete', 'dlt'],
   'desc': "Deletes message of any user",
   'category': "group",
   'filename': __filename,
   'use': "<quote/reply message.>"
-}, async _0x49a1c7 => {
+}, async _0x320d81 => {
   try {
-    if (!_0x49a1c7.reply_message) {
-      return _0x49a1c7.reply("*_Please reply to a message!!!_*");
+    if (!_0x320d81.reply_message) {
+      return _0x320d81.reply("*_Please reply to a message!!!_*");
     }
-    let _0x3ca945 = _0x49a1c7.reply_message;
-    if (_0x3ca945 && _0x3ca945.fromMe && _0x49a1c7.isCreator) {
-      return _0x3ca945["delete"]();
+    let _0x3776d3 = _0x320d81.reply_message;
+    if (_0x3776d3 && _0x3776d3.fromMe && _0x320d81.isCreator) {
+      return _0x3776d3["delete"]();
     } else {
-      if (_0x3ca945 && _0x49a1c7.isGroup) {
-        if (!_0x49a1c7.isBotAdmin) {
-          return _0x49a1c7.reply("*I can't delete messages without getting Admin Role.*");
+      if (_0x3776d3 && _0x320d81.isGroup) {
+        if (!_0x320d81.isBotAdmin) {
+          return _0x320d81.reply("*I can't delete messages without getting Admin Role.*");
         }
-        if (!_0x49a1c7.isAdmin) {
-          return _0x49a1c7.reply(tlang().admin);
+        if (!_0x320d81.isAdmin) {
+          return _0x320d81.reply(tlang().admin);
         }
-        await _0x3ca945["delete"]();
+        await _0x3776d3["delete"]();
       } else {
-        return await _0x49a1c7.reply(tlang().owner);
+        return await _0x320d81.reply(tlang().owner);
       }
     }
-  } catch (_0x2cf742) {
-    await _0x49a1c7.error(_0x2cf742 + "\n\ncommand: del", _0x2cf742);
+  } catch (_0x4ac639) {
+    await _0x320d81.error(_0x4ac639 + "\n\ncommand: del", _0x4ac639);
   }
 });
 cmd({
@@ -1181,22 +1177,22 @@ cmd({
   'category': "group",
   'filename': __filename,
   'use': "<text for broadcast.>"
-}, async (_0x5565f5, _0x3920fd) => {
+}, async (_0x553d05, _0x5d14a3) => {
   try {
-    if (!_0x3920fd) {
-      return await _0x5565f5.reply("*_Uhh Dear, Provide text to broadcast in all groups_*");
+    if (!_0x5d14a3) {
+      return await _0x553d05.reply("*_Uhh Dear, Provide text to broadcast in all groups_*");
     }
-    let _0x22327c = await _0x5565f5.bot.groupFetchAllParticipating();
-    let _0x1fdf42 = Object.entries(_0x22327c).slice(0x0).map(_0x39bb3a => _0x39bb3a[0x1]);
-    let _0x4078d2 = _0x1fdf42.map(_0xa6f862 => _0xa6f862.id);
-    await _0x5565f5.send("*_Sending Broadcast To " + _0x4078d2.length + " Group Chat, Finish Time " + _0x4078d2.length * 1.5 + " second_*");
-    let _0x51b624 = "*--❗" + tlang().title + " Broadcast❗--*\n\n *🍀Message:* " + _0x3920fd;
-    let _0x525239 = {
+    let _0x387241 = await _0x553d05.bot.groupFetchAllParticipating();
+    let _0x32f9c9 = Object.entries(_0x387241).slice(0x0).map(_0x3ccabe => _0x3ccabe[0x1]);
+    let _0x4ef191 = _0x32f9c9.map(_0x5ea155 => _0x5ea155.id);
+    await _0x553d05.send("*_Sending Broadcast To " + _0x4ef191.length + " Group Chat, Finish Time " + _0x4ef191.length * 1.5 + " second_*");
+    let _0x552932 = "*--❗" + tlang().title + " Broadcast❗--*\n\n *🍀Message:* " + _0x5d14a3;
+    let _0x305de9 = {
       'forwardingScore': 0x3e7,
       'isForwarded': true,
       'externalAdReply': {
         'title': "Suhail-Md Broadcast",
-        'body': _0x5565f5.senderName,
+        'body': _0x553d05.senderName,
         'renderLargerThumbnail': true,
         'thumbnail': log0,
         'mediaType': 0x1,
@@ -1205,16 +1201,23 @@ cmd({
         'showAdAttribution': true
       }
     };
-    for (let _0x105888 of _0x4078d2) {
+    for (let _0x4c9688 of _0x4ef191) {
       try {
         await sleep(0x5dc);
-        await send(_0x5565f5, _0x51b624, {
-          'contextInfo': _0x525239
-        }, '', '', _0x105888);
+        await send(_0x553d05, _0x552932, {
+          'contextInfo': _0x305de9
+        }, '', '', _0x4c9688);
       } catch {}
     }
-    return await _0x5565f5.reply("*Successful Sending Broadcast To " + _0x4078d2.length + " Group*");
-  } catch (_0x34e386) {
-    await _0x5565f5.error(_0x34e386 + "\n\ncommand: broadcast", _0x34e386);
+    return await _0x553d05.reply("*Successful Sending Broadcast To " + _0x4ef191.length + " Group*");
+  } catch (_0x2a8ad8) {
+    await _0x553d05.error(_0x2a8ad8 + "\n\ncommand: broadcast", _0x2a8ad8);
   }
 });
+
+/*
+{
+   pattern: "group",
+   type: "notes",
+}
+*/

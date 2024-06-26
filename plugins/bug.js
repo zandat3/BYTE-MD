@@ -32,7 +32,7 @@
   const {
     Bytetext7
   } = require("../lib/danger/Bytetext7");
-  const travaft = fs.readFileSync("./lib/danger/VenomBug.jpg");
+  const travaft = fs.readFileSync("./lib/danger/bytebug.jpg");
   const _0x5f5528 = {
     fromMe: false,
     participant: "0@s.whatsapp.net",

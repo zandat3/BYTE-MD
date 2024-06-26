@@ -1,7 +1,7 @@
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 <h1 align="center"> BYTE-MD </h1> 
-<p align="center"> Simplest BOT with lot of BUGS on the INTERNET </p>
+<p align="center"> Simplest BOT on the INTERNET </p>
 
  
     
@@ -22,7 +22,7 @@
 
     
 
-1.  [`PARING CODE`](https://byte-session.vercel.app/))
+1. ***1st step*** [`PARING CODE`](https://byte-session.vercel.app/))
 2. ***Then `Go-to Whatapp>Three dots>Linked Devices`***
 3.  ***Click [`FORK`](https://github.com/HyHamza/BYTE-MD/fork)***
 4.  ***Deploy on [`HEROKU`](https://dashboard.heroku.com/new?template=https://github.com/HyHamza/BYTE-MD)***

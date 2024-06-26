@@ -1,8 +1,8 @@
 {
    "name": "byte-md",
    "version": "2.5.0",
-   "description": "World Simplest Bot created by TalkDrove",
-   "main": "index.js",
+   "description": "World's Simplest Bot created by TalkDrove",
+   "main": "talkdrove.js",
    "type": "commonjs",
    "scripts": {
       "run": "pm2 start . --deep-monitoring --attach --name HyHamza || node .",

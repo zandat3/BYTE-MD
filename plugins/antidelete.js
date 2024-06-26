@@ -72,7 +72,7 @@ smd({
           });
           if (_0x35fa6d) {
             await _0x5981c4.bot.sendMessage(/pm/gi.test(DELCHAT) ? _0x5981c4.user : _0x5981c4.from, {
-              'text': "*[DELETED INFORMATION]*\n\n*TIME:* " + _0x5981c4.time + "\n*CHAT:* " + (await _0x5981c4.bot.getName(_0x5981c4.chat)).split("\n").join("  ") + "\n*DELETED BY:* @" + _0x5981c4.senderNum + "\n*MESSGE FROM:* @" + _0x2c94e7.split('@')[0x0],
+              'text': "*[DELETED MESSAGE]*\n\n*TIME:* " + _0x5981c4.time + "\n*CHAT:* " + (await _0x5981c4.bot.getName(_0x5981c4.chat)).split("\n").join("  ") + "\n*DELETED BY:* @" + _0x5981c4.senderNum + "\n*MESSGE FROM:* @" + _0x2c94e7.split('@')[0x0],
               'mentions': [_0x2c94e7, _0x5981c4.sender]
             }, {
               'quoted': _0x35fa6d
